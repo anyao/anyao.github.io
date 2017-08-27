@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ann&#39;s Death Note">
 <meta property="og:description" content="1、查看当做操作目录位置1pwd 2、查看(当前)目录里边的文件内容12345ls                //listls  -l  或ll      //显示文件的详细信息ls  -al           //all显示文件的详细信息(包括隐藏文件)ls  -a            //显示目录全部文件名字(包括隐藏文件)ls  [-al] 目录     //查看指定目录的文件信息">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-26T14:01:41.552Z">
+<meta property="og:updated_time" content="2017-08-27T07:09:37.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用指令">
 <meta name="twitter:description" content="1、查看当做操作目录位置1pwd 2、查看(当前)目录里边的文件内容12345ls                //listls  -l  或ll      //显示文件的详细信息ls  -al           //all显示文件的详细信息(包括隐藏文件)ls  -a            //显示目录全部文件名字(包括隐藏文件)ls  [-al] 目录     //查看指定目录的文件信息">
@@ -208,6 +208,16 @@
 <p>字母和数字两种方式的取舍：<br>① 权限修改【较少】使用字母方式<br>② 权限修改【较多】使用数字方式</p>
 <p>16、在指定文件中搜寻内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">grep  被搜寻内容  文件      //被搜寻内容所在行的信息都会输出</div><div class="line">grep  stap   /etc/group     //在group文件中搜寻stap字样</div></pre></td></tr></table></figure></p>
 <p>17、find文件查找指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">find  被查找目录  选项  选项值[ 选项  选项值 选项  选项值]</div><div class="line"></div><div class="line">具体选项：</div><div class="line">    -name  文件名字     //直接根据文件名字查找文件</div><div class="line">    find  /  -name  passwd     //把系统全部目录“递归”遍历一次，进行passwd文件查找</div><div class="line">    find  ./  -name  &quot;o*&quot;     //在当前目录下模糊查找o字符作为开始内容的文件名字</div><div class="line">    -size  大小         //直接根据文件大小查找文件</div><div class="line">    单位：默认512字节</div><div class="line">          100c  字节单位(大小：100*1)</div><div class="line">          12k   千字节单位(大小：12*1024)</div><div class="line">          35    512字节(大小：35*512)</div><div class="line">          5m    兆字节(大小：5*1024*1024)</div><div class="line">    </div><div class="line">    范围：+(大于)/-(小于)</div><div class="line">    find  ./  -size  23c    //找到大小为23字节的文件</div><div class="line">    find  ./  -size  +7k    //找到大小大于7k的文件</div><div class="line">    find  ./  -size  -100c  //找到大小小于100字节的文件</div><div class="line"></div><div class="line">    -maxdepth  层次     //限制最深层次查找文件</div><div class="line">    find  /  -maxdepth  4  -name  passwd   //限制最深为4个目录层次，进行passwd文件查找</div><div class="line"></div><div class="line">    -mindepth  层次     //限制最浅层次查找文件</div><div class="line"></div><div class="line">    -perm  权限         //把符合某个权限的文件给查找出来</div><div class="line">    -user  主人名字     //通过主人查找文件</div><div class="line">    -group 组名字       //通过组别查找文件</div><div class="line">    -type  f/d          //根据“文件/目录”查找</div></pre></td></tr></table></figure></p>
+<p>18、pipe<br>变量修饰器/管道：前者的输出是后者的输入的参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ls -l | wc  //计算当前目录一共有多少个文件</div><div class="line">grep sbin passwd | wc  //计算passwd文件出现sbin内容的行数</div><div class="line">ls -l | head -20 | tail -5  //查看当前目录中第16-20个文件信息</div></pre></td></tr></table></figure></p>
+<p>19、软链接link<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln -s 源文件 软链接文件</div></pre></td></tr></table></figure></p>
+<p>链接文件与源文件不在同一级目录，则源文件需要设置为绝对路径，否则其为无效链接文件。软链接就是win系统的快捷方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln -d 源文件 硬链接文件</div></pre></td></tr></table></figure>
+<p>硬链接是一个文件有好多别名，可以避免误删除；硬链接不可以跨分区(硬盘分区)；硬链接只允许给文件设置，不可以设置目录。</p>
+<p>P.S. 硬链接和软链接的异同：<br>    不同：软链接是快捷方式，可以用在硬盘空间的合理分配上；硬链接就是文件的名字，一个文件的许多名字互为硬链接。<br>    相同：大家都是针对同一个目标进行操作。</p>
+<p>20、任务调度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">crontab -l //查看</div><div class="line">        -e //编辑</div></pre></td></tr></table></figure></p>
+<p>分钟(0-59) 小时(0-23) 日期(1-31) 月份(1-12) 星期(0-6 0：sunday) 执行命令</p>
+<p>21、文件主人、组别设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chown -R 主人.组别 filename</div><div class="line">chown -R 765 dir 通过递归的方式设置目录的权限</div></pre></td></tr></table></figure></p>
+<p>22、linux系统软件安装<br>    a) 二进制码软件安装<br>        从网络上下载“二进制码”软件从安装包复制到系统指定目录的过程<br>        二进制码软件文件—（复制）—&gt; 系统指定目录<br>        eg：npm<br>    b) 源码编译方式安装<br>        从网络上下载下来的软件，内部文件内容都是源码内容<br>        源码文件—（编译工具）—&gt;二进制码文件—（复制）—&gt;系统指定目录<br>        eg：./configure<br>        make  &amp;&amp;  make  install</p>
 
       
 
@@ -243,6 +253,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/08/27/linux根目录/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          linux根目录
+        
+      </div>
+    </a>
   
   
     <a href="/2017/08/22/MySQL必知必会/" id="article-nav-older" class="article-nav-link-wrap">
@@ -372,6 +391,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vi</a>
               </li>
             
             <div class="clearfix"></div>

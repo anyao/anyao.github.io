@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ann&#39;s Death Note">
 <meta property="og:description" content="数据的格式化是一个表示问题，而不是一个检索问题。 检索出的数据并不是以纯粹的随机顺序显示的。如果不排序，数据一般将以它在底层表中出现的顺序显示。这可以是数据最初添加到表中的数据。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-26T14:01:13.162Z">
+<meta property="og:updated_time" content="2017-08-27T03:25:28.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL必知必会">
 <meta name="twitter:description" content="数据的格式化是一个表示问题，而不是一个检索问题。 检索出的数据并不是以纯粹的随机顺序显示的。如果不排序，数据一般将以它在底层表中出现的顺序显示。这可以是数据最初添加到表中的数据。">
@@ -181,6 +181,7 @@
 <p>使用COUNT(*)对表中行的数目进行计数，不管表列中包括空值(NULL)还是非空值；使用COUNT(column)对特定列中具有值的行进行计数，忽略NULL值。</p>
 <p>除聚集计算语句外，SELECT语句中的每个列都必须在GROUP BY子句中给出。</p>
 <p>HAVING非常类似于WHERE。事实上，目前所有类型的WHERE子句都以用HAVING来替代。唯一的的差别是WHERE过滤行，而HAVING过滤分组。<br>另一种理解方法，WHERE在数据分组前进行过滤，HAVING在数据分组后进行过滤。</p>
+<p>更快的删除：如果想从表中删除所有行，不要使用 DELETE 。可使用 TRUNCATE TABLE 语句，它完成相同的工作，但速度更快（TRUNCATE 实际是删除原来的表并重新创建一个表，而不是逐行删除表中的数据）。</p>
 
       
 
@@ -349,6 +350,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vi</a>
               </li>
             
             <div class="clearfix"></div>
