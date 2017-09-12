@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ann&#39;s Death Note">
 <meta property="og:description" content="数据的格式化是一个表示问题，而不是一个检索问题。 检索出的数据并不是以纯粹的随机顺序显示的。如果不排序，数据一般将以它在底层表中出现的顺序显示。这可以是数据最初添加到表中的数据。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-27T03:25:28.923Z">
+<meta property="og:updated_time" content="2017-08-28T02:54:11.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL必知必会">
 <meta name="twitter:description" content="数据的格式化是一个表示问题，而不是一个检索问题。 检索出的数据并不是以纯粹的随机顺序显示的。如果不排序，数据一般将以它在底层表中出现的顺序显示。这可以是数据最初添加到表中的数据。">
@@ -182,6 +182,7 @@
 <p>除聚集计算语句外，SELECT语句中的每个列都必须在GROUP BY子句中给出。</p>
 <p>HAVING非常类似于WHERE。事实上，目前所有类型的WHERE子句都以用HAVING来替代。唯一的的差别是WHERE过滤行，而HAVING过滤分组。<br>另一种理解方法，WHERE在数据分组前进行过滤，HAVING在数据分组后进行过滤。</p>
 <p>更快的删除：如果想从表中删除所有行，不要使用 DELETE 。可使用 TRUNCATE TABLE 语句，它完成相同的工作，但速度更快（TRUNCATE 实际是删除原来的表并重新创建一个表，而不是逐行删除表中的数据）。</p>
+<p>视图是可更新的。如果你对视图增加或删除行，实际上是对其基表增加或删除行。<br>但，并非所有的视图都是可更新的。基本上可以说，如果MySQL不能正确地确定被更新的基数据，则不允许更新。eg. 分组（GROUP BY 和 HAVING）；联结；子查询；并；聚集函数；DISTINCT；导出（计算）列。<br>视图实际上主要用于数据检索。</p>
 
       
 
@@ -365,7 +366,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">PHP面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">error</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">predis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">日常整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
               </li>
             
             <div class="clearfix"></div>
