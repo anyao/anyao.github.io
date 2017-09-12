@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://annyao.cn">
-  <title>对MVC的理解 | Ann&#39;s Death Note</title>
+  <title>两种架构模式:分层与MVC | Ann&#39;s Death Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、架构模式除了通常应用于对象和类之间交互的典型设计模式和原则之外，还有一些从总体上指导架构的原则或模式。《面向模式的软件体系结构》中将它们定义为架构模式，而不是设计模式。本文将介绍其中两种模式：层与MVC。">
-<meta name="keywords" content="PHP面试题,MVC,三层架构">
+<meta name="keywords" content="php面试题,MVC,三层架构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对MVC的理解">
-<meta property="og:url" content="https://annyao.cn/2017/09/11/两种架构模式：分层与MVC/index.html">
+<meta property="og:title" content="两种架构模式:分层与MVC">
+<meta property="og:url" content="https://annyao.cn/2017/09/12/两种架构模式-分层与MVC/index.html">
 <meta property="og:site_name" content="Ann&#39;s Death Note">
 <meta property="og:description" content="一、架构模式除了通常应用于对象和类之间交互的典型设计模式和原则之外，还有一些从总体上指导架构的原则或模式。《面向模式的软件体系结构》中将它们定义为架构模式，而不是设计模式。本文将介绍其中两种模式：层与MVC。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20170912162004399">
-<meta property="og:updated_time" content="2017-09-12T09:20:18.337Z">
+<meta property="og:updated_time" content="2017-09-12T09:28:52.664Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对MVC的理解">
+<meta name="twitter:title" content="两种架构模式:分层与MVC">
 <meta name="twitter:description" content="一、架构模式除了通常应用于对象和类之间交互的典型设计模式和原则之外，还有一些从总体上指导架构的原则或模式。《面向模式的软件体系结构》中将它们定义为架构模式，而不是设计模式。本文将介绍其中两种模式：层与MVC。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170912162004399">
   
@@ -157,20 +157,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-两种架构模式：分层与MVC" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-两种架构模式-分层与MVC" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      对MVC的理解
+      两种架构模式:分层与MVC
     </h1>
   
 
         
-        <a href="/2017/09/11/两种架构模式：分层与MVC/" class="archive-article-date">
-  	<time datetime="2017-09-11T14:55:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-11</time>
+        <a href="/2017/09/12/两种架构模式-分层与MVC/" class="archive-article-date">
+  	<time datetime="2017-09-12T09:24:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
 </a>
         
       </header>
@@ -184,8 +184,28 @@
 <li><strong>“三层”模式</strong><br>分层设计有些像等级制企业或者军事机构，给系统中的每个组件一个“等级”即为啄序，这样可以吩咐较低级别的组件要做什么。</li>
 </ul>
 <p>典型的三层架构如下：</p>
-<table><br>        <tr><br>            <th><center>层</center></th><br>            <th><center>目的</center></th><br>        </tr><br>        <tr><br>            <td><center>表现层</center></td><br>            <td><center>应用程序的用户接口和用户交互部分，主要是HTML页</center></td><br>        </tr><br>        <tr><br>            <td><center>逻辑层</center></td><br>            <td><center>业务逻辑</center></td><br>        </tr><br>        <tr><br>            <td><center>数据层</center></td><br>            <td><center>存储和检索数据库或者其他存储区中的数据。<br>eg. 与数据库有关的类，提供non-SQL接口给数据层其他类</center></td><br>        </tr><br></table>
-
+<table>
+<thead>
+<tr>
+<th style="text-align:left">层</th>
+<th style="text-align:center">目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">表现层</td>
+<td style="text-align:center">应用程序的用户接口和用户交互部分，主要是HTML页</td>
+</tr>
+<tr>
+<td style="text-align:left">逻辑层</td>
+<td style="text-align:center">业务逻辑</td>
+</tr>
+<tr>
+<td style="text-align:left">数据层</td>
+<td style="text-align:center">存储和检索数据库或者其他存储区中的数据。<br>eg. 与数据库有关的类，提供non-SQL接口给数据层其他类</td>
+</tr>
+</tbody>
+</table>
 <p>以上，一个不太严格的示例可能就是 ActiveRecord 模式，其中业务逻辑和数据存储逻辑都混合在一个类中。</p>
 <ul>
 <li><strong>逻辑层（域层）</strong><br>域层的功能可以用CRUD来概括。如果有复杂的业务逻辑，域对象就会非常有用。反之，如果为当前并不需要的需求引入它的话，只会增加系统的负担。</li>
@@ -196,8 +216,28 @@
 <p>在MVC中，model是程序的功能核心，view用于向用户展示信息，controller用来处理用户输入。</p>
 <p>下图简要说明Web MVC如何工作。箭头意为：使用。<br><img src="http://img.blog.csdn.net/20170912162004399" alt=""></p>
 <p>下表概括了MVC结构中各个组件的作用：</p>
-<table><br>        <tr><br>            <th><center>组件</center></th><br>            <th><center>目的</center></th><br>        </tr><br>        <tr><br>            <td><center>模型</center></td><br>            <td><center>程序中表示数据和逻辑，除用户接口之外的所有内容</center></td><br>        </tr><br>        <tr><br>            <td><center>视图</center></td><br>            <td><center>显示对用户展示结果的部分，多为HTML</center></td><br>        </tr><br>        <tr><br>            <td><center>控制器</center></td><br>            <td><center>控制用户输入，在Web中，用来处理HTTP请求</center></td><br>        </tr><br></table>
-
+<table>
+<thead>
+<tr>
+<th style="text-align:left">组件</th>
+<th style="text-align:center">目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">模型</td>
+<td style="text-align:center">程序中表示数据和逻辑，除用户接口之外的所有内容</td>
+</tr>
+<tr>
+<td style="text-align:left">视图</td>
+<td style="text-align:center">显示对用户展示结果的部分，多为HTML</td>
+</tr>
+<tr>
+<td style="text-align:left">控制器</td>
+<td style="text-align:center">控制用户输入，在Web中，用来处理HTTP请求</td>
+</tr>
+</tbody>
+</table>
 <p>将MVC视为一种原则更为有用一些。模型、视图和控制器不比分在不同的类或者函数中，每个部分聚合一起，而不是随意地散落在应用程序各处，这是MVC最重要的特性。</p>
 <ul>
 <li><strong>控制器逻辑</strong><br>Web原本就是带有超链接的静态HTML页面的集合。用户通过在浏览器中输入URL或者点击链接（GET）请求特定页面，并且只获取该页面。</li>
@@ -218,7 +258,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">PHP面试题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">php面试题</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -360,19 +400,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">error</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">备忘</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -384,11 +420,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">整理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">PHP面试题</a>
+                <a href="javascript:void(0)" class="js-tag color3">vi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">php面试题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -400,11 +444,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vi</a>
+                <a href="javascript:void(0)" class="js-tag color5">日常整理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">error</a>
+                <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -412,11 +456,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">日常整理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
             
             <div class="clearfix"></div>
