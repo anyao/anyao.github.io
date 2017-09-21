@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://annyao.cn">
-  <title>Tag: 三层架构 | Ann&#39;s Death Note</title>
+  <title>session存入memcached | Ann&#39;s Death Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="PHP Developer,日常整理">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ann&#39;s Death Note">
-<meta property="og:url" content="https://annyao.cn/tags/三层架构/index.html">
+  <meta name="description" content="方法一使用 memcached 拓展，提供的 session 处理器 （session.save_handler）：memcache。">
+<meta name="keywords" content="memcached,session,php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="session存入memcached">
+<meta property="og:url" content="https://annyao.cn/2017/09/21/session存入memcached/index.html">
 <meta property="og:site_name" content="Ann&#39;s Death Note">
+<meta property="og:description" content="方法一使用 memcached 拓展，提供的 session 处理器 （session.save_handler）：memcache。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-21T14:53:15.827Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ann&#39;s Death Note">
+<meta name="twitter:title" content="session存入memcached">
+<meta name="twitter:description" content="方法一使用 memcached 拓展，提供的 session 处理器 （session.save_handler）：memcache。">
   
     <link rel="alternative" href="/atom.xml" title="Ann&#39;s Death Note" type="application/atom+xml">
   
@@ -151,68 +155,110 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-session存入memcached" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/12/两种架构模式-分层与MVC/" class="archive-article-date">
-  	<time datetime="2017-09-12T09:24:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/12/两种架构模式-分层与MVC/">两种架构模式:分层与MVC</a>
+    <h1 class="article-title" itemprop="name">
+      session存入memcached
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/09/21/session存入memcached/" class="archive-article-date">
+  	<time datetime="2017-09-21T14:52:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><strong>方法一</strong><br>使用 memcached 拓展，提供的 session 处理器 （session.save_handler）：memcache。<a id="more"></a><br>通过配置存储位置配置项（session.save_path），设置 memcached 服务器信息。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"># memcache 拓展定义好的memcache，session存储处理器</div><div class="line">ini_set(&apos;session.save_handler&apos;, &apos;memcache&apos;);</div><div class="line"></div><div class="line"># 所使用的 memcached 服务器信息</div><div class="line">ini_set(&apos;session.save_path&apos;, &apos;tcp://127.0.0.1:11211; tcp://host2:port2; tcp://host3:port3;&apos;);</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>需要用于 <code>session_start();</code> 之前。</p>
+<ul>
+<li><strong>方法二</strong><br>更改 php.ini 配置。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">;session.save_handler = files</div><div class="line">session.save_handler = memcache</div><div class="line"></div><div class="line">;session.save_path = &quot;/tmp&quot;</div><div class="line">session.save_path = &quot;tcp://127.0.0.1:11211&quot;</div></pre></td></tr></table></figure>
+<p>P.S. 在 memcache 中 session 以  session_id为键名保存。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">php面试题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">memcached</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MVC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">session</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">三层架构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/09/21/memcached的get-miss/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">memcached的get_miss</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -232,9 +278,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

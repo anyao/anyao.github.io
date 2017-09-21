@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://annyao.cn">
   <title>redis入门指南 | Ann&#39;s Death Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DEL 命令的参数不支持通配符，但可以结合 linux 的 pipe 和 xargs 命自己实现删除所有符合规则的键。eg.redis-cli KEYS “user:“ | xargs redis-cli DELredis-cli DEL ‘redis-cli KEYS “user:“‘ //性能更好  redis 对于键的命名并没有强制的要求，但比较好的实践是用 “对象类型：对象ID：对象属性">
+  <meta name="description" content="DEL 命令的参数不支持通配符，但可以结合 linux 的 pipe 和 xargs 命自己实现删除所有符合规则的键。">
 <meta name="keywords" content="读书笔记,redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis入门指南">
 <meta property="og:url" content="https://annyao.cn/2017/09/01/redis入门指南/index.html">
 <meta property="og:site_name" content="Ann&#39;s Death Note">
-<meta property="og:description" content="DEL 命令的参数不支持通配符，但可以结合 linux 的 pipe 和 xargs 命自己实现删除所有符合规则的键。eg.redis-cli KEYS “user:“ | xargs redis-cli DELredis-cli DEL ‘redis-cli KEYS “user:“‘ //性能更好  redis 对于键的命名并没有强制的要求，但比较好的实践是用 “对象类型：对象ID：对象属性">
+<meta property="og:description" content="DEL 命令的参数不支持通配符，但可以结合 linux 的 pipe 和 xargs 命自己实现删除所有符合规则的键。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-07T02:58:01.635Z">
+<meta property="og:updated_time" content="2017-09-12T23:33:04.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis入门指南">
-<meta name="twitter:description" content="DEL 命令的参数不支持通配符，但可以结合 linux 的 pipe 和 xargs 命自己实现删除所有符合规则的键。eg.redis-cli KEYS “user:“ | xargs redis-cli DELredis-cli DEL ‘redis-cli KEYS “user:“‘ //性能更好  redis 对于键的命名并没有强制的要求，但比较好的实践是用 “对象类型：对象ID：对象属性">
+<meta name="twitter:description" content="DEL 命令的参数不支持通配符，但可以结合 linux 的 pipe 和 xargs 命自己实现删除所有符合规则的键。">
   
     <link rel="alternative" href="/atom.xml" title="Ann&#39;s Death Note" type="application/atom+xml">
   
@@ -176,7 +176,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li><p>DEL 命令的参数不支持通配符，但可以结合 linux 的 pipe 和 xargs 命自己实现删除所有符合规则的键。<br>eg.<br>redis-cli KEYS “user:<em>“ | xargs redis-cli DEL<br>redis-cli DEL ‘redis-cli KEYS “user:</em>“‘ //性能更好</p>
+<li><p>DEL 命令的参数不支持通配符，但可以结合 linux 的 pipe 和 xargs 命自己实现删除所有符合规则的键。</p>
+<a id="more"></a>
+<p>eg.<br>redis-cli KEYS “user:<em>“ | xargs redis-cli DEL<br>redis-cli DEL ‘redis-cli KEYS “user:</em>“‘ //性能更好</p>
 </li>
 <li><p>redis 对于键的命名并没有强制的要求，但比较好的实践是用 “对象类型：对象ID：对象属性” 来命名一个键。<br>eg. user:1:friends</p>
 </li>
@@ -204,6 +206,8 @@
 <li><p><code>BRPOP</code> 和 <code>RPOP</code> 相似，唯一的区别是当列表中没有元素是 <code>BRPOP</code> 会一直阻塞住连接，知道有新元素加入。</p>
 </li>
 <li><p>当通过配置文件参数 maxmemory 设置了 redis 可用的最大空间大小时，redis不会使用共享对象，因为对于每一个键值都需要使用一个 redisObject 来记录其 LRU 信息。 </p>
+</li>
+<li><p>手动发送 <code>SAVE</code> 或 <code>BGSAVE</code> 命令让 redis 执行快照，两个命令的区别在于，前者是由主进程进行快照操作，会阻塞其他请求，后者会通过 fork 子进程进行快照操作。</p>
 </li>
 </ul>
 
@@ -366,15 +370,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">error</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">error</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">predis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">memcached</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LRU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">懒惰模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -386,7 +406,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -395,6 +427,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">日常整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -407,22 +447,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">日常整理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">predis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
             
             <div class="clearfix"></div>
