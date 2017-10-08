@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ann&#39;s Death Note">
 <meta property="og:description" content="LINUX   virtual box 与 centos 官网下载，安装。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-08T09:00:19.459Z">
+<meta property="og:updated_time" content="2017-10-08T09:03:21.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LAMP&#x2F;LNMP安装与配置">
 <meta name="twitter:description" content="LINUX   virtual box 与 centos 官网下载，安装。">
@@ -193,11 +193,7 @@
 <li><p><code>ping www.baidu.com</code>，若网络不通，则 <code>vi /etc/sysconfig/network-scripts/ifcfg-enp0s3</code> 中<code>ONBOOT = yes</code></p>
 </li>
 <li><p>设置静态 IP，<code>ifcfg-enp0s3</code> 中添加 </p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IPADDR = &quot;192.168.1.150&quot;</div><div class="line">NETMASK = &quot;255.255.255.0&quot;</div><div class="line">NM_CONTROLLED=  &quot;no&quot;</div></pre></td></tr></table></figure>
-
-保存退出。
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo systemctl restart network.service     // 重新启动 network</div><div class="line">ip addr   // 查看固定 ip 是否分配成功</div></pre></td></tr></table></figure>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">IPADDR = &quot;192.168.1.150&quot;</div><div class="line">NETMASK = &quot;255.255.255.0&quot;</div><div class="line">NM_CONTROLLED=  &quot;no&quot;</div><div class="line"></div><div class="line">// 保存退出。</div><div class="line"></div><div class="line">sudo systemctl restart network.service     // 重新启动 network</div><div class="line">ip addr   // 查看固定 ip 是否分配成功</div></pre></td></tr></table></figure>
 </code></pre></li>
 <li><p>防火墙允许连接</p>
 <pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">            sudo firewall-cmd --zone=public --add_port=22/tcp --permanent  </div><div class="line">            sudo systemctl restart firewalld.service // 重新启动 </div><div class="line">            ``` </div><div class="line"></div><div class="line">            virtual box的设置中的网络，选择连接方式为 **桥接网卡**，对应虚拟机右键重启。本地使用 `ssh ann@192.168.1.150` 登录。</div><div class="line"></div><div class="line">            [SecurCRT](http://ez.downcc.com/down1/securecrt64pj_downcc.zip)</div><div class="line"></div><div class="line"></div><div class="line">- **NGINX**</div></pre></td></tr></table></figure>
@@ -409,6 +405,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">predis</a>
               </li>
              
@@ -418,14 +422,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">备忘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,6 +477,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vi</a>
               </li>
              
@@ -494,14 +498,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php的面向对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
             
             <div class="clearfix"></div>
