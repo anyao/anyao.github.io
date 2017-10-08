@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ann&#39;s Death Note">
 <meta property="og:description" content="LINUX   virtual box 与 centos 官网下载，安装。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-08T08:36:11.266Z">
+<meta property="og:updated_time" content="2017-10-08T08:57:43.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LAMP&#x2F;LNMP安装与配置">
 <meta name="twitter:description" content="LINUX   virtual box 与 centos 官网下载，安装。">
@@ -194,128 +194,65 @@
 </li>
 <li><p>设置静态 IP，<code>ifcfg-enp0s3</code> 中添加 </p>
 <pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">IPADDR = &quot;192.168.1.150&quot;</div><div class="line">NETMASK = &quot;255.255.255.0&quot;</div><div class="line">NM_CONTROLLED=  &quot;no&quot;</div></pre></td></tr></table></figure>
+
+保存退出。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo systemctl restart network.service     // 重新启动 network</div><div class="line">ip addr   // 查看固定 ip 是否分配成功</div></pre></td></tr></table></figure>
 </code></pre></li>
+<li><p>防火墙允许连接</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">            sudo firewall-cmd --zone=public --add_port=22/tcp --permanent  </div><div class="line">            sudo systemctl restart firewalld.service // 重新启动 </div><div class="line">            ``` </div><div class="line"></div><div class="line">      virtual box的设置中的网络，选择连接方式为 **桥接网卡**，对应虚拟机右键重启。本地使用 `ssh ann@192.168.1.150` 登录。</div><div class="line"></div><div class="line">            [SecurCRT](http://ez.downcc.com/down1/securecrt64pj_downcc.zip)</div><div class="line"></div><div class="line">- **NGINX**</div></pre></td></tr></table></figure>
+</code></pre><p>sudo rpm -Uvh <a href="http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm" target="_blank" rel="external">http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</a><br>sudo yum install -y nginx<br>sudo systemctl start nginx.service<br>sudo systemctl status nginx.service</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    [CentOS 7 yum 安装 Nginx](http://blog.csdn.net/u012486840/article/details/52610320)</div><div class="line"></div><div class="line"></div><div class="line">- **APACHE**</div><div class="line"></div><div class="line">1. 安装</div></pre></td></tr></table></figure>
+<p>  sudo yum -y install httpd<br>  sudo rm -f /etc/httpd/conf.d/welcome.conf<br>  sudo vim /etc/httpd/conf/httpd.conf</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2.  配置</div></pre></td></tr></table></figure>
+<p>  ServerAdmin root@linuxprobe.org // line 86<br>  ServerName www.linuxprobe.org:80    // line 95<br>  AllowOverride All   // line 151<br>  DirectoryIndex index.html index.cgi index.php   // line 164<br>  ServerTokens Prod<br>  KeepAlive On</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">3.  启动</div></pre></td></tr></table></figure>
+<p>  sudo systemctl start httpd<br>  sudo systemctl enable httpd</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">4. 开启防火墙</div></pre></td></tr></table></figure>
+<p>  sudo firewall-cmd –add-service=http –permanent<br>  sudo firewall-cmd –reload</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">5.  测试</div></pre></td></tr></table></figure>
+<p>   vim /var/www/html/index.html</p>
+<p>  <html></html></p>
+<pre><code>&lt;body&gt;
+    it works!!
+&lt;/body&gt;
+</code></pre><p>  </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **MYSQL**</div><div class="line"></div><div class="line">    + 安装</div></pre></td></tr></table></figure>
+<p>  sudo rpm -Uvh <a href="https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm" target="_blank" rel="external">https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm</a><br>  yum repolist enabled | grep mysql<br>  sudo yum install mysql-community-server</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">+ 启动</div></pre></td></tr></table></figure>
+<p>  sudo systemctl start mysqld.service</p>
+<p>  // 查看启动状态，如果状态不是active，则查看/var/log/mysqld.log日志<br>  sudo systemctl status mysqld.service    </p>
+<p>  // 查看初始密码<br>  sudo grep ‘temporary password’ /var/log/mysqld.log</p>
+<p>  // 启动<br>  mysql -uroot -p</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">+ 修改密码</div></pre></td></tr></table></figure>
+<p>  // 修改默认密码<br>  ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘MyNewPass4!’;</p>
+<p>  // 修改失败<br>  ERROR 1819 (HY000): Your password does not satisfy the current policy requirements</p>
+<p>  // 降低密码安全等级<br>  set global validate_password_policy=0;</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">        判断密码的标准就基于密码的长度了。这个由`validate_password_length`参数来决定，默认值为8。重新修改密码即可。</div><div class="line"></div><div class="line">        [A Quick Guide to Using the MySQL Yum Repository](https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/)</div><div class="line"></div><div class="line">    + 卸载</div><div class="line"></div><div class="line">        源码安装cmake的各种参数会造成配置时各种麻烦，而且还没有默认my.cnf，所以暂时改用yum。而卸载没有安装好的mysql时，my.cnf不会跟着删除，也就会造成mysqld.log和初始密码找不到。</div><div class="line"></div><div class="line">        [CentOS下MySQL的彻底卸载](http://blog.csdn.net/typa01_kk/article/details/49057073)</div><div class="line"></div><div class="line">- **PHP**</div></pre></td></tr></table></figure>
+<p>// 先装个依赖包<br>sudo rpm -Uvh <a href="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm" target="_blank" rel="external">https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</a></p>
+<p>sudo rpm -Uvh <a href="https://mirror.webtatic.com/yum/el7/webtatic-release.rpm" target="_blank" rel="external">https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</a><br>sudo yum install php70w<br>yum install php70w php70w-opcache php70w-fpm php70-mysql php70w-mbstring php70w-devel php70w-pear<br>php -v</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[webtatic](https://webtatic.com/projects/yum-repository/)</div><div class="line"></div><div class="line">+ LAMP</div></pre></td></tr></table></figure>
+<p>  sudo vi /etc/php.ini</p>
+<p>  date.timezone = “Asia/Shanghai” // line 878，设置时区</p>
+<p>  sudo systemctl restart httpd</p>
+<p>  echo “&lt;?php phpinfo(); ?&gt;” &gt; /var/www/html/phpinfo.php</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">+ LNMP</div></pre></td></tr></table></figure>
+<p>  vim /etc/nginx/nginx.conf   // last line：看到</p>
+<p>  include /etc/nginx/conf.d/*.conf;</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<p>  vim /etc/nginx/conf.d/default.conf;</p>
+<p>  location ~ .php$ {<br>  root /var/www/html; #指定php的根目录<br>  fastcgi_pass 127.0.0.1:9000;#php-fpm的默认端口是9000<br>  fastcgi_index index.php;<br>  fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;<br>  include fastcgi_params;<br>  }</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<p>  nginx -t<br>  sudo systemctl restart nginx.service<br>  sudo systemctl start php-fpm</p>
+<p>  netstat -ntpl   // 查看php-fpm有没有监听<br>  <code>``
+  本地访问</code>192.168.1.150/phpinfo.php`。</p>
+<p>  <a href="http://www.blogjava.net/Alpha/archive/2016/08/10/431515.html" target="_blank" rel="external">CentOS 7 安裝 Nginx、PHP7、PHP-FPM</a></p>
+<p>  <a href="http://www.cnblogs.com/zhouqi666/p/6793731.html" target="_blank" rel="external">centos7 安装LNMP（php7）之 nginx php-fpm yum安装以及配置文件修改</a></p>
+</li>
 </ul>
 </li>
 </ol>
-<pre><code>        保存退出。
 
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo systemctl restart network.service     // 重新启动 network</div><div class="line">ip addr   // 查看固定 ip 是否分配成功</div></pre></td></tr></table></figure>
-
-
-+ 防火墙允许连接
-
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">            sudo firewall-cmd --zone=public --add_port=22/tcp --permanent  </div><div class="line">            sudo systemctl restart firewalld.service // 重新启动 </div><div class="line">            ``` </div><div class="line">      virtual box的设置中的网络，选择连接方式为 **桥接网卡**，对应虚拟机右键重启。本地使用 `ssh ann@192.168.1.150` 登录。</div><div class="line"></div><div class="line">            [SecurCRT](http://ez.downcc.com/down1/securecrt64pj_downcc.zip)</div><div class="line">            </div><div class="line">- **NGINX**</div></pre></td></tr></table></figure>
-
-sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
-sudo yum install -y nginx
-sudo systemctl start nginx.service
-sudo systemctl status nginx.service
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    [CentOS 7 yum 安装 Nginx](http://blog.csdn.net/u012486840/article/details/52610320)</div><div class="line"></div><div class="line"></div><div class="line">- **APACHE**</div><div class="line"></div><div class="line">1. 安装</div></pre></td></tr></table></figure>
-
-    sudo yum -y install httpd
-    sudo rm -f /etc/httpd/conf.d/welcome.conf
-    sudo vim /etc/httpd/conf/httpd.conf
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">2.  配置</div></pre></td></tr></table></figure>
-
-    ServerAdmin root@linuxprobe.org // line 86
-    ServerName www.linuxprobe.org:80    // line 95
-    AllowOverride All   // line 151
-    DirectoryIndex index.html index.cgi index.php   // line 164
-    ServerTokens Prod
-    KeepAlive On
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">3.  启动</div></pre></td></tr></table></figure>
-
-    sudo systemctl start httpd
-    sudo systemctl enable httpd
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4. 开启防火墙</div></pre></td></tr></table></figure>
-
-    sudo firewall-cmd --add-service=http --permanent
-    sudo firewall-cmd --reload
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">5.  测试</div></pre></td></tr></table></figure>
-
-     vim /var/www/html/index.html
-
-    &lt;html&gt;
-        &lt;body&gt;
-            it works!!
-        &lt;/body&gt;
-    &lt;/html&gt;
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **MYSQL**</div><div class="line"></div><div class="line">    + 安装</div></pre></td></tr></table></figure>
-
-    sudo rpm -Uvh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
-    yum repolist enabled | grep mysql
-    sudo yum install mysql-community-server
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">+ 启动</div></pre></td></tr></table></figure>
-
-    sudo systemctl start mysqld.service
-
-    // 查看启动状态，如果状态不是active，则查看/var/log/mysqld.log日志
-    sudo systemctl status mysqld.service    
-
-    // 查看初始密码
-    sudo grep &apos;temporary password&apos; /var/log/mysqld.log
-
-    // 启动
-    mysql -uroot -p
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">+ 修改密码</div></pre></td></tr></table></figure>
-
-    // 修改默认密码
-    ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;MyNewPass4!&apos;;
-
-    // 修改失败
-    ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
-
-    // 降低密码安全等级
-    set global validate_password_policy=0;
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">        </div><div class="line">        判断密码的标准就基于密码的长度了。这个由`validate_password_length`参数来决定，默认值为8。重新修改密码即可。</div><div class="line"></div><div class="line">        [A Quick Guide to Using the MySQL Yum Repository](https://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/)</div><div class="line"></div><div class="line">    + 卸载</div><div class="line">    </div><div class="line">        源码安装cmake的各种参数会造成配置时各种麻烦，而且还没有默认my.cnf，所以暂时改用yum。而卸载没有安装好的mysql时，my.cnf不会跟着删除，也就会造成mysqld.log和初始密码找不到。</div><div class="line"></div><div class="line">        [CentOS下MySQL的彻底卸载](http://blog.csdn.net/typa01_kk/article/details/49057073)</div><div class="line">        </div><div class="line">- **PHP**</div></pre></td></tr></table></figure>
-
-// 先装个依赖包
-sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-
-sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-sudo yum install php70w
-yum install php70w php70w-opcache php70w-fpm php70-mysql php70w-mbstring php70w-devel php70w-pear
-php -v
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[webtatic](https://webtatic.com/projects/yum-repository/)</div><div class="line"></div><div class="line">+ LAMP</div></pre></td></tr></table></figure>
-
-    sudo vi /etc/php.ini
-
-    date.timezone = &quot;Asia/Shanghai&quot; // line 878，设置时区
-
-    sudo systemctl restart httpd
-
-    echo &quot;&lt;?php phpinfo(); ?&gt;&quot; &gt; /var/www/html/phpinfo.php
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">+ LNMP</div></pre></td></tr></table></figure>
-
-    vim /etc/nginx/nginx.conf   // last line：看到
-
-    include /etc/nginx/conf.d/*.conf;
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"> </div></pre></td></tr></table></figure>
-
-    vim /etc/nginx/conf.d/default.conf;
-
-    location ~ \.php$ {
-    root /var/www/html; #指定php的根目录
-    fastcgi_pass 127.0.0.1:9000;#php-fpm的默认端口是9000
-    fastcgi_index index.php;
-    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    include fastcgi_params;
-    }
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"> </div></pre></td></tr></table></figure>
-
-    nginx -t
-    sudo systemctl restart nginx.service
-    sudo systemctl start php-fpm
-
-    netstat -ntpl   // 查看php-fpm有没有监听
-    ```
-    本地访问`192.168.1.150/phpinfo.php`。
-
-    [CentOS 7 安裝 Nginx、PHP7、PHP-FPM](http://www.blogjava.net/Alpha/archive/2016/08/10/431515.html)
-
-    [centos7 安装LNMP（php7）之 nginx php-fpm yum安装以及配置文件修改](http://www.cnblogs.com/zhouqi666/p/6793731.html)
-</code></pre>
       
 
       
@@ -464,7 +401,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">predis</a>
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,15 +417,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,15 +425,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">整理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,6 +445,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php的核心技术与最佳实践</a>
               </li>
              
@@ -524,15 +461,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">php面试题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">php面试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vi</a>
+                <a href="javascript:void(0)" class="js-tag color2">php面试题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,6 +474,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vi</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,7 +501,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color2">predis</a>
               </li>
             
             <div class="clearfix"></div>
