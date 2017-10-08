@@ -17,7 +17,7 @@
 <meta property="og:description" content="为什么使用：HTTP协议为无状态协议（没有内建机制维护两个事物之间的状态），所以同一个用户两次访问相同页面时，HTTP请求不会认为它们来自同一个用户，会把它们当做是两次请求的独立，也就没有办法在不同页面之间保持跟踪。允许服务器跟踪同一个客户端做出的连续请求">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20171008162601796">
-<meta property="og:updated_time" content="2017-10-08T08:53:49.925Z">
+<meta property="og:updated_time" content="2017-10-08T12:54:35.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php面试题整理-会话控制技术">
 <meta name="twitter:description" content="为什么使用：HTTP协议为无状态协议（没有内建机制维护两个事物之间的状态），所以同一个用户两次访问相同页面时，HTTP请求不会认为它们来自同一个用户，会把它们当做是两次请求的独立，也就没有办法在不同页面之间保持跟踪。允许服务器跟踪同一个客户端做出的连续请求">
@@ -194,7 +194,8 @@
 <li><p><strong>session存储</strong> </p>
 <p>  <img src="http://img.blog.csdn.net/20171008162601796" alt=""></p>
 <ul>
-<li><p>方法一<br>使用 memcached 拓展，提供的 session 处理器 （session.save_handler）：memcache。<br>通过配置存储位置配置项（session.save_path），设置 memcached 服务器信息。</p>
+<li><p>方法一</p>
+<p>使用 memcached 拓展，提供的 session 处理器 （session.save_handler）：memcache。<br>通过配置存储位置配置项（session.save_path），设置 memcached 服务器信息。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"># memcache 拓展定义好的memcache，session存储处理器</div><div class="line">ini_set(&apos;session.save_handler&apos;, &apos;memcache&apos;);</div><div class="line"></div><div class="line"># 所使用的 memcached 服务器信息</div><div class="line">ini_set(&apos;session.save_path&apos;, &apos;tcp://127.0.0.1:11211; tcp://host2:port2; tcp://host3:port3;&apos;);</div><div class="line">?&gt;</div></pre></td></tr></table></figure>
 <p>  需要用于 <code>session_start();</code> 之前。</p>
 </li>
@@ -374,23 +375,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">predis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -399,6 +384,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -419,6 +412,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">懒惰模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -454,15 +451,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -471,6 +464,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
              
               <li class="article-tag-list-item">
