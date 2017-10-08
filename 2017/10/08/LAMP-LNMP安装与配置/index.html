@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ann&#39;s Death Note">
 <meta property="og:description" content="LINUX   virtual box 与 centos 官网下载，安装。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-08T08:57:43.643Z">
+<meta property="og:updated_time" content="2017-10-08T09:00:19.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LAMP&#x2F;LNMP安装与配置">
 <meta name="twitter:description" content="LINUX   virtual box 与 centos 官网下载，安装。">
@@ -200,7 +200,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo systemctl restart network.service     // 重新启动 network</div><div class="line">ip addr   // 查看固定 ip 是否分配成功</div></pre></td></tr></table></figure>
 </code></pre></li>
 <li><p>防火墙允许连接</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">            sudo firewall-cmd --zone=public --add_port=22/tcp --permanent  </div><div class="line">            sudo systemctl restart firewalld.service // 重新启动 </div><div class="line">            ``` </div><div class="line"></div><div class="line">      virtual box的设置中的网络，选择连接方式为 **桥接网卡**，对应虚拟机右键重启。本地使用 `ssh ann@192.168.1.150` 登录。</div><div class="line"></div><div class="line">            [SecurCRT](http://ez.downcc.com/down1/securecrt64pj_downcc.zip)</div><div class="line"></div><div class="line">- **NGINX**</div></pre></td></tr></table></figure>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">            sudo firewall-cmd --zone=public --add_port=22/tcp --permanent  </div><div class="line">            sudo systemctl restart firewalld.service // 重新启动 </div><div class="line">            ``` </div><div class="line"></div><div class="line">            virtual box的设置中的网络，选择连接方式为 **桥接网卡**，对应虚拟机右键重启。本地使用 `ssh ann@192.168.1.150` 登录。</div><div class="line"></div><div class="line">            [SecurCRT](http://ez.downcc.com/down1/securecrt64pj_downcc.zip)</div><div class="line"></div><div class="line"></div><div class="line">- **NGINX**</div></pre></td></tr></table></figure>
 </code></pre><p>sudo rpm -Uvh <a href="http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm" target="_blank" rel="external">http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</a><br>sudo yum install -y nginx<br>sudo systemctl start nginx.service<br>sudo systemctl status nginx.service</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    [CentOS 7 yum 安装 Nginx](http://blog.csdn.net/u012486840/article/details/52610320)</div><div class="line"></div><div class="line"></div><div class="line">- **APACHE**</div><div class="line"></div><div class="line">1. 安装</div></pre></td></tr></table></figure>
 <p>  sudo yum -y install httpd<br>  sudo rm -f /etc/httpd/conf.d/welcome.conf<br>  sudo vim /etc/httpd/conf/httpd.conf</p>
@@ -409,11 +409,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
+                <a href="javascript:void(0)" class="js-tag color2">predis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -422,6 +418,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,14 +485,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">日常整理</a>
               </li>
              
@@ -501,7 +497,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">predis</a>
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
             
             <div class="clearfix"></div>
