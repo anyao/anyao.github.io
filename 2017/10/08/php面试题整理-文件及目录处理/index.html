@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ann&#39;s Death Note">
 <meta property="og:description" content="文件操作函数及几种打开模式  fopen()  r 打开只读文件，该文件必须存在。  r+ 打开可读写的文件，该文件必须存在。  w 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。 w+ 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。 a 以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-08T13:29:06.391Z">
+<meta property="og:updated_time" content="2017-10-08T13:32:04.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php面试题整理-文件及目录处理">
 <meta name="twitter:description" content="文件操作函数及几种打开模式  fopen()  r 打开只读文件，该文件必须存在。  r+ 打开可读写的文件，该文件必须存在。  w 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。 w+ 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。 a 以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写">
@@ -202,18 +202,21 @@
 <li><p><strong>目录操作函数</strong></p>
 <ul>
 <li><p>名称相关 </p>
-<p>  1、 basename(path,suffix) 返回路径中的文件名部分</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$path = &quot;/testweb/home.php&quot;;</div><div class="line">echo basename($path);   // home.php</div><div class="line">echo basename($path,&quot;.php&quot;);    // home</div></pre></td></tr></table></figure>
-</code></pre></li>
+<ol>
+<li><p>basename(path,suffix) 返回路径中的文件名部分</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$path = &quot;/testweb/home.php&quot;;</div><div class="line">echo basename($path);   // home.php</div><div class="line">echo basename($path,&quot;.php&quot;);    // home</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
 </ul>
 </li>
 </ul>
-<pre><code>    2、 dirname(path) 返回路径中的目录部分
+<pre><code>    2. dirname(path) 返回路径中的目录部分
 
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo dirname(&quot;c:/testweb/home.php&quot;);    // c:/testweb</div></pre></td></tr></table></figure>
 
 
-    3、pathinfo(path,options) 返回文件路径的信息
+    3. pathinfo(path,options) 返回文件路径的信息
 
         &gt;options 返回的数组元素。默认是 all
         &gt;
@@ -223,7 +226,7 @@
         &gt;&gt;
         &gt;&gt;PATHINFO_EXTENSION - 只返回 extension
 
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">print_r(pathinfo(&quot;/testweb/test.txt&quot;));</div><div class="line"></div><div class="line">Array(</div><div class="line">    [dirname] =&gt; /testweb</div><div class="line">    [basename] =&gt; test.txt</div><div class="line">    [extension] =&gt; txt</div><div class="line">)</div></pre></td></tr></table></figure>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">print_r(pathinfo(&quot;/testweb/test.txt&quot;));</div><div class="line"></div><div class="line">Array(</div><div class="line">    [dirname] =&gt; /testweb</div><div class="line">    [basename] =&gt; test.txt</div><div class="line">    [extension] =&gt; txt</div><div class="line">)</div></pre></td></tr></table></figure>
 
 * 目录读取 opendir()、readdir()、closedir()、rewinddir()
 
@@ -248,11 +251,14 @@
 * 文件属性 file_exists()...
 </code></pre><ul>
 <li><p><strong>eg.</strong> </p>
-<p>  1、 文件前加hello world</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$file = &apos;./hello.txt&apos;;</div><div class="line">$handle = fopen($file, &apos;r&apos;);</div><div class="line">$content = fread($handle, $filesize($file));</div><div class="line">$content = &apos;Hello World&apos;.$content;</div><div class="line">fclose($handle);</div><div class="line">$handle = fopen($file, &apos;w&apos;);</div><div class="line">fwrite($handle, $content);</div><div class="line">$fclose($handle);</div></pre></td></tr></table></figure>
-</code></pre></li>
+<ol>
+<li><p>文件前加hello world</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$file = &apos;./hello.txt&apos;;</div><div class="line">$handle = fopen($file, &apos;r&apos;);</div><div class="line">$content = fread($handle, $filesize($file));</div><div class="line">$content = &apos;Hello World&apos;.$content;</div><div class="line">fclose($handle);</div><div class="line">$handle = fopen($file, &apos;w&apos;);</div><div class="line">fwrite($handle, $content);</div><div class="line">$fclose($handle);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
 </ul>
-<pre><code>2、对目录进行遍历
+<pre><code>2. 对目录进行遍历
 
     <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function loopDir($dir)&#123;</div><div class="line">   $handle = opendir($dir);</div><div class="line">   while(false !== ($file = readdir($handle)))&#123;</div><div class="line">       if ($file != &apos;.&apos; &amp;&amp; $file != &apos;..&apos;)&#123;</div><div class="line">           echo $file.&quot;\n&quot;;</div><div class="line">           if (file($dir.&apos;/&apos;.$file) == &apos;dir&apos;)&#123;</div><div class="line">               loopdir($dir.&apos;/&apos;.$file);</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </code></pre>
@@ -423,15 +429,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">predis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">predis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,7 +509,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php的面向对象</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,18 +530,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php的面向对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
             
             <div class="clearfix"></div>
