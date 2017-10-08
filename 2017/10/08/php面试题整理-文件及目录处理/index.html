@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://annyao.cn">
   <title>php面试题整理-文件及目录处理 | Ann&#39;s Death Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文件操作函数及几种打开模式  fopen()  r 打开只读文件，该文件必须存在。  r+ 打开可读写的文件，该文件必须存在。  w 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。 w+ 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。 a 以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写">
+  <meta name="description" content="文件操作函数及几种打开模式  fopen()">
 <meta name="keywords" content="php面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php面试题整理-文件及目录处理">
 <meta property="og:url" content="https://annyao.cn/2017/10/08/php面试题整理-文件及目录处理/index.html">
 <meta property="og:site_name" content="Ann&#39;s Death Note">
-<meta property="og:description" content="文件操作函数及几种打开模式  fopen()  r 打开只读文件，该文件必须存在。  r+ 打开可读写的文件，该文件必须存在。  w 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。 w+ 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。 a 以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写">
+<meta property="og:description" content="文件操作函数及几种打开模式  fopen()">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-08T13:34:09.681Z">
+<meta property="og:updated_time" content="2017-10-08T13:36:26.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php面试题整理-文件及目录处理">
-<meta name="twitter:description" content="文件操作函数及几种打开模式  fopen()  r 打开只读文件，该文件必须存在。  r+ 打开可读写的文件，该文件必须存在。  w 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。 w+ 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。 a 以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写">
+<meta name="twitter:description" content="文件操作函数及几种打开模式  fopen()">
   
     <link rel="alternative" href="/atom.xml" title="Ann&#39;s Death Note" type="application/atom+xml">
   
@@ -179,6 +179,7 @@
 <li><p><strong>文件操作函数及几种打开模式</strong></p>
 <ol>
 <li><p>fopen()</p>
+ <a id="more"></a>
 <blockquote>
 <p>r 打开只读文件，该文件必须存在。 </p>
 <p>r+ 打开可读写的文件，该文件必须存在。 </p>
@@ -204,8 +205,8 @@
 <li><p>名称相关 </p>
 <ol>
 <li><p>basename(path,suffix) 返回路径中的文件名部分</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$path = &quot;/testweb/home.php&quot;;</div><div class="line">echo basename($path);   // home.php</div><div class="line">echo basename($path,&quot;.php&quot;);    // home</div></pre></td></tr></table></figure>
-</li>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$path = &quot;/testweb/home.php&quot;;</div><div class="line">echo basename($path);   // home.php</div><div class="line">echo basename($path,&quot;.php&quot;);    // home</div></pre></td></tr></table></figure>
+</code></pre></li>
 </ol>
 </li>
 </ul>
@@ -213,7 +214,7 @@
 </ul>
 <pre><code>    2. dirname(path) 返回路径中的目录部分
 
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo dirname(&quot;c:/testweb/home.php&quot;);    // c:/testweb</div></pre></td></tr></table></figure>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo dirname(&quot;c:/testweb/home.php&quot;);    // c:/testweb</div></pre></td></tr></table></figure>
 
 
     3. pathinfo(path,options) 返回文件路径的信息
@@ -449,11 +450,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,11 +494,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">php面试题</a>
+                <a href="javascript:void(0)" class="js-tag color1">php面试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">php面试</a>
+                <a href="javascript:void(0)" class="js-tag color2">php面试题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,10 +531,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php的面向对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
             
             <div class="clearfix"></div>
