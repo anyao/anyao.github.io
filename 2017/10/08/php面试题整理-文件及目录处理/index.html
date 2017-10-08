@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ann&#39;s Death Note">
 <meta property="og:description" content="文件操作函数及几种打开模式  fopen()">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-08T13:46:53.328Z">
+<meta property="og:updated_time" content="2017-10-08T13:53:46.510Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php面试题整理-文件及目录处理">
 <meta name="twitter:description" content="文件操作函数及几种打开模式  fopen()">
@@ -203,29 +203,13 @@
 <li><p><strong>目录操作函数</strong></p>
 <ol>
 <li><p>名称相关 </p>
-<ul>
-<li><p>basename(path,suffix) 返回路径中的文件名部分</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$path = &quot;/testweb/home.php&quot;;</div><div class="line">echo basename($path);   // home.php</div><div class="line">echo basename($path,&quot;.php&quot;);    // home</div></pre></td></tr></table></figure>
-</code></pre></li>
-<li><p>dirname(path) 返回路径中的目录部分</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo dirname(&quot;c:/testweb/home.php&quot;);    // c:/testweb</div></pre></td></tr></table></figure>
-</code></pre></li>
-</ul>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// basename(path,suffix) 返回路径中的文件名部分</div><div class="line">$path = &quot;/testweb/home.php&quot;;</div><div class="line">echo basename($path);   // home.php</div><div class="line">echo basename($path,&quot;.php&quot;);    // home</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//dirname(path) 返回路径中的目录部分</div><div class="line">echo dirname(&quot;c:/testweb/home.php&quot;);    // c:/testweb</div></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
 </ul>
-<pre><code>    + pathinfo(path,options) 返回文件路径的信息
-
-        &gt;options 返回的数组元素。默认是 all
-        &gt;
-        &gt;&gt; PATHINFO_DIRNAME - 只返回 dirname
-        &gt;&gt;
-        &gt;&gt;PATHINFO_BASENAME - 只返回 basename
-        &gt;&gt;
-        &gt;&gt;PATHINFO_EXTENSION - 只返回 extension
-
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">print_r(pathinfo(&quot;/testweb/test.txt&quot;));</div><div class="line"></div><div class="line">Array(</div><div class="line">    [dirname] =&gt; /testweb</div><div class="line">    [basename] =&gt; test.txt</div><div class="line">    [extension] =&gt; txt</div><div class="line">)</div></pre></td></tr></table></figure>
+<pre><code>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// pathinfo(path,options) 返回文件路径的信息</div><div class="line">//options 返回的数组元素。默认是 all。PATHINFO_DIRNAME，只返回 dirname；PATHINFO_BASENAME，只返回 basename；PATHINFO_EXTENSION - 只返回 extension。</div><div class="line"></div><div class="line">print_r(pathinfo(&quot;/testweb/test.txt&quot;));</div><div class="line"></div><div class="line">Array(</div><div class="line">    [dirname] =&gt; /testweb</div><div class="line">    [basename] =&gt; test.txt</div><div class="line">    [extension] =&gt; txt</div><div class="line">)</div></pre></td></tr></table></figure>
 
 2. 目录读取 opendir()、readdir()、closedir()、rewinddir()
 
@@ -457,6 +441,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">memcached</a>
               </li>
              
@@ -501,19 +489,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">整理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,6 +498,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
              
               <li class="article-tag-list-item">
