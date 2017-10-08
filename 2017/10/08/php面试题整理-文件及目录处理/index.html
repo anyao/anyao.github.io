@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ann&#39;s Death Note">
 <meta property="og:description" content="文件操作函数及几种打开模式  fopen()">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-08T13:57:27.889Z">
+<meta property="og:updated_time" content="2017-10-08T14:00:09.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php面试题整理-文件及目录处理">
 <meta name="twitter:description" content="文件操作函数及几种打开模式  fopen()">
@@ -232,16 +232,16 @@
 </ul>
 <ul>
 <li><p><strong>eg.</strong> </p>
-<ol>
+<ul>
 <li><p>文件前加hello world</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$file = &apos;./hello.txt&apos;;</div><div class="line">$handle = fopen($file, &apos;r&apos;);</div><div class="line">$content = fread($handle, $filesize($file));</div><div class="line">$content = &apos;Hello World&apos;.$content;</div><div class="line">fclose($handle);</div><div class="line">$handle = fopen($file, &apos;w&apos;);</div><div class="line">fwrite($handle, $content);</div><div class="line">$fclose($handle);</div></pre></td></tr></table></figure>
-</code></pre></li>
-</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$file = &apos;./hello.txt&apos;;</div><div class="line">$handle = fopen($file, &apos;r&apos;);</div><div class="line">$content = fread($handle, $filesize($file));</div><div class="line">$content = &apos;Hello World&apos;.$content;</div><div class="line">fclose($handle);</div><div class="line">$handle = fopen($file, &apos;w&apos;);</div><div class="line">fwrite($handle, $content);</div><div class="line">$fclose($handle);</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<pre><code>2. 对目录进行遍历
+</li>
+</ul>
+<pre><code>+ 对目录进行遍历
 
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function loopDir($dir)&#123;</div><div class="line">   $handle = opendir($dir);</div><div class="line">   while(false !== ($file = readdir($handle)))&#123;</div><div class="line">       if ($file != &apos;.&apos; &amp;&amp; $file != &apos;..&apos;)&#123;</div><div class="line">           echo $file.&quot;\n&quot;;</div><div class="line">           if (file($dir.&apos;/&apos;.$file) == &apos;dir&apos;)&#123;</div><div class="line">               loopdir($dir.&apos;/&apos;.$file);</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function loopDir($dir)&#123;</div><div class="line">   $handle = opendir($dir);</div><div class="line">   while(false !== ($file = readdir($handle)))&#123;</div><div class="line">       if ($file != &apos;.&apos; &amp;&amp; $file != &apos;..&apos;)&#123;</div><div class="line">           echo $file.&quot;\n&quot;;</div><div class="line">           if (file($dir.&apos;/&apos;.$file) == &apos;dir&apos;)&#123;</div><div class="line">               loopdir($dir.&apos;/&apos;.$file);</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </code></pre>
       
 
@@ -398,23 +398,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">error</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">lamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -430,6 +418,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">error</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -438,11 +434,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,15 +490,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MVC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vi</a>
               </li>
              
               <li class="article-tag-list-item">
