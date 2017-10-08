@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ann&#39;s Death Note">
 <meta property="og:description" content="LINUX virtual box 与 centos 官网下载，安装。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-08T14:48:44.734Z">
+<meta property="og:updated_time" content="2017-10-08T14:59:29.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LAMP&#x2F;LNMP安装与配置">
 <meta name="twitter:description" content="LINUX virtual box 与 centos 官网下载，安装。">
@@ -175,54 +175,49 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="LINUX"><a href="#LINUX" class="headerlink" title="LINUX"></a>LINUX</h3><ul>
+        <h3 id="LINUX"><a href="#LINUX" class="headerlink" title="LINUX"></a>LINUX</h3><ol>
 <li><p>virtual box 与 centos 官网下载，安装。</p>
-  <a id="more"></a>
+ <a id="more"></a>
 </li>
 <li><p>virtual box 首次启动centos时，需注意：</p>
-<ul>
+<ol>
 <li><p><strong>安装位置</strong>的选择 和 <strong>网络和主机名</strong>中网络的开启</p>
 </li>
 <li><p><strong>root 密码</strong>的设置 和<strong>管理员用户</strong>的创建</p>
 </li>
-</ul>
+</ol>
 </li>
 <li><p>网络设置</p>
 <ul>
 <li><p><code>ping www.baidu.com</code>，若网络不通，则 <code>vi /etc/sysconfig/network-scripts/ifcfg-enp0s3</code> 中<code>ONBOOT = yes</code></p>
 </li>
 <li><p>设置静态 IP，<code>ifcfg-enp0s3</code> 中添加 </p>
-<pre><code>   IPADDR = &quot;192.168.1.150&quot;
-   NETMASK = &quot;255.255.255.0&quot;
-   NM_CONTROLLED=  &quot;no&quot;
-
-保存退出。
-
-   sudo systemctl restart network.service     // 重新启动 network
-   ip addr   // 查看固定 ip 是否分配成功
-</code></pre></li>
-<li><p>防火墙允许连接</p>
-<pre><code>  sudo firewall-cmd --zone=public --add_port=22/tcp --permanent  
-  sudo systemctl restart firewalld.service // 重新启动 
-
-virtual box的设置中的网络，选择连接方式为 **桥接网卡**，对应虚拟机右键重启。本地使用 `ssh ann@192.168.1.150` 登录。
-
-[SecurCRT](http://ez.downcc.com/down1/securecrt64pj_downcc.zip)
-</code></pre></li>
-</ul>
+<p>IPADDR = “192.168.1.150”<br>NETMASK = “255.255.255.0”<br>NM_CONTROLLED=  “no”</p>
 </li>
 </ul>
+</li>
+</ol>
+<p>保存退出。</p>
+<pre><code>sudo systemctl restart network.service     // 重新启动 network
+ip addr   // 查看固定 ip 是否分配成功
+</code></pre><ul>
+<li><p><strong>防火墙允许连接</strong></p>
+<p> sudo firewall-cmd –zone=public –add_port=22/tcp –permanent<br> sudo systemctl restart firewalld.service // 重新启动 </p>
+<p>virtual box的设置中的网络，选择连接方式为 <strong>桥接网卡</strong>，对应虚拟机右键重启。本地使用 <code>ssh ann@192.168.1.150</code> 登录。</p>
+</li>
+</ul>
+<p><a href="http://ez.downcc.com/down1/securecrt64pj_downcc.zip" target="_blank" rel="external">SecurCRT</a></p>
 <h3 id="NGINX"><a href="#NGINX" class="headerlink" title="NGINX"></a>NGINX</h3><pre><code>sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 sudo yum install -y nginx
 sudo systemctl start nginx.service
 sudo systemctl status nginx.service
 </code></pre><p><a href="http://blog.csdn.net/u012486840/article/details/52610320" target="_blank" rel="external">CentOS 7 yum 安装 Nginx</a></p>
-<h3 id="APACHE"><a href="#APACHE" class="headerlink" title="APACHE"></a>APACHE</h3><ol>
+<h3 id="APACHE"><a href="#APACHE" class="headerlink" title="APACHE"></a>APACHE</h3><ul>
 <li><p>安装</p>
-<pre><code>sudo yum -y install httpd
-sudo rm -f /etc/httpd/conf.d/welcome.conf
-sudo vim /etc/httpd/conf/httpd.conf
-</code></pre></li>
+<p>  sudo yum -y install httpd<br>  sudo rm -f /etc/httpd/conf.d/welcome.conf<br>  sudo vim /etc/httpd/conf/httpd.conf</p>
+</li>
+</ul>
+<ol>
 <li><p>配置</p>
 <pre><code>ServerAdmin root@linuxprobe.org // line 86
 ServerName www.linuxprobe.org:80    // line 95
@@ -498,19 +493,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lamp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,15 +593,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php的面向对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">日常整理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php的面向对象</a>
               </li>
             
             <div class="clearfix"></div>
