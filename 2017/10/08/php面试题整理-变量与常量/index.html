@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://annyao.cn">
   <title>php面试题整理-变量与常量 | Ann&#39;s Death Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="引用变量">
+  <meta name="description" content="引用变量  在 PHP 中，变量和值是两个概念。PHP是一种弱类型语言，值在PHP的内部（zend引擎），被存放在一个zval结构体中，这个结构体中，除了包含了值的类型，数据外，还包含两个字节的信息。一个是 is_ref，是一个bool值，用来标识这个值是否是一个强制引用。第二个额外字节 是refcount，用来表示指向这个值的变量（也称符号即symbol）的个数。如果refcount为0，那么">
 <meta name="keywords" content="php面试题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php面试题整理-变量与常量">
 <meta property="og:url" content="https://annyao.cn/2017/10/08/php面试题整理-变量与常量/index.html">
 <meta property="og:site_name" content="Ann&#39;s Death Note">
-<meta property="og:description" content="引用变量">
+<meta property="og:description" content="引用变量  在 PHP 中，变量和值是两个概念。PHP是一种弱类型语言，值在PHP的内部（zend引擎），被存放在一个zval结构体中，这个结构体中，除了包含了值的类型，数据外，还包含两个字节的信息。一个是 is_ref，是一个bool值，用来标识这个值是否是一个强制引用。第二个额外字节 是refcount，用来表示指向这个值的变量（也称符号即symbol）的个数。如果refcount为0，那么">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-08T05:20:55.146Z">
+<meta property="og:updated_time" content="2017-10-08T13:04:23.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php面试题整理-变量与常量">
-<meta name="twitter:description" content="引用变量">
+<meta name="twitter:description" content="引用变量  在 PHP 中，变量和值是两个概念。PHP是一种弱类型语言，值在PHP的内部（zend引擎），被存放在一个zval结构体中，这个结构体中，除了包含了值的类型，数据外，还包含两个字节的信息。一个是 is_ref，是一个bool值，用来标识这个值是否是一个强制引用。第二个额外字节 是refcount，用来表示指向这个值的变量（也称符号即symbol）的个数。如果refcount为0，那么">
   
     <link rel="alternative" href="/atom.xml" title="Ann&#39;s Death Note" type="application/atom+xml">
   
@@ -176,16 +176,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li><p><strong>引用变量</strong></p>
+<li><p><strong>引用变量</strong><br>  在 PHP 中，变量和值是两个概念。PHP是一种弱类型语言，值在PHP的内部（zend引擎），被存放在一个zval结构体中，这个结构体中，除了包含了值的类型，数据外，还包含两个字节的信息。一个是 <code>is_ref</code>，是一个bool值，用来标识这个值是否是一个<strong>强制引用</strong>。第二个额外字节 是<code>refcount</code>，用来表示指向这个值的变量（也称符号即symbol）的个数。如果refcount为0，那么这个值就可以被回收了。</p>
   <a id="more"></a>
-<p>  在 PHP 中，变量和值是两个概念。PHP是一种弱类型语言，值在PHP的内部（zend引擎），被存放在一个zval结构体中，这个结构体中，除了包含了值的类型，数据外，还包含两个字节的信息。一个是 <code>is_ref</code>，是一个bool值，用来标识这个值是否是一个<strong>强制引用</strong>。第二个额外字节 是<code>refcount</code>，用来表示指向这个值的变量（也称符号即symbol）的个数。如果refcount为0，那么这个值就可以被回收了。</p>
 <p>  所以，引用意味着用不同的名字访问同一个内容（值）；</p>
 <ul>
 <li><p>ZVAL记录变量引用情况，可以使用 <code>xdebug_debug_zval()</code> 函数来输出 <code>refcount</code> 和 <code>is_ref</code> 的值。</p>
 </li>
 <li><p>写时复制（COPY ON WRITE）</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$i = 4;   </div><div class="line">// i:(refcount=1, is_ref=0),int 4</div><div class="line"></div><div class="line">$j = $i;   </div><div class="line">// i:(refcount=2, is_ref=0),int 4</div><div class="line">// j:(refcount=2, is_ref=0),int 4</div><div class="line"></div><div class="line">$j = 5; </div><div class="line">// i:(refcount=1, is_ref=0),int 4</div><div class="line">// j:(refcount=1, is_ref=0),int 5</div></pre></td></tr></table></figure>
-</li>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$i = 4;   </div><div class="line">// i:(refcount=1, is_ref=0),int 4</div><div class="line"></div><div class="line">$j = $i;   </div><div class="line">// i:(refcount=2, is_ref=0),int 4</div><div class="line">// j:(refcount=2, is_ref=0),int 4</div><div class="line"></div><div class="line">$j = 5; </div><div class="line">// i:(refcount=1, is_ref=0),int 4</div><div class="line">// j:(refcount=1, is_ref=0),int 5</div></pre></td></tr></table></figure>
+</code></pre></li>
 </ul>
 </li>
 </ul>
@@ -198,7 +197,8 @@
     P.S. 对象本身就是引用传递,没有COW（想复制可以用clone）.
 
 + 取消引用
-unset 只会取消引用，不会销毁空间。
+
+    unset 只会取消引用，不会销毁空间。
 </code></pre><ul>
 <li><p><strong>常量</strong>。</p>
 <ul>
@@ -391,6 +391,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">error</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
               </li>
              
@@ -399,19 +411,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">error</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">predis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -423,7 +423,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -431,11 +431,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,6 +459,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php的核心技术与最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">php面试</a>
               </li>
              
@@ -479,27 +487,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">日常整理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php的核心技术与最佳实践</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MVC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">日常整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
               </li>
              
               <li class="article-tag-list-item">
