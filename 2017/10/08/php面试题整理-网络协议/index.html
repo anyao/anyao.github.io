@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://annyao.cn">
   <title>php面试题整理-网络协议 | Ann&#39;s Death Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HTTP协议状态码五类响应1XX 指示信息——请求已接收，继续处理； 2XX success——请求已被成功接收； 3XX redirection——要完成请求必须进行更进一步操作； 4XX 客户端错误——服务器无法处理请求或者语法错误； 5XX 服务器错误——服务器未能实现合法的请求； 常见状态代码200 OK：客户端请求成功 400 Bad Request：客户端请求有语法错误，不能被服务端所">
+  <meta name="description" content="HTTP协议状态码五类响应1XX 指示信息——请求已接收，继续处理；">
 <meta name="keywords" content="php面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php面试题整理-网络协议">
 <meta property="og:url" content="https://annyao.cn/2017/10/08/php面试题整理-网络协议/index.html">
 <meta property="og:site_name" content="Ann&#39;s Death Note">
-<meta property="og:description" content="HTTP协议状态码五类响应1XX 指示信息——请求已接收，继续处理； 2XX success——请求已被成功接收； 3XX redirection——要完成请求必须进行更进一步操作； 4XX 客户端错误——服务器无法处理请求或者语法错误； 5XX 服务器错误——服务器未能实现合法的请求； 常见状态代码200 OK：客户端请求成功 400 Bad Request：客户端请求有语法错误，不能被服务端所">
+<meta property="og:description" content="HTTP协议状态码五类响应1XX 指示信息——请求已接收，继续处理；">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-09T02:08:45.092Z">
+<meta property="og:updated_time" content="2017-10-09T02:42:55.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php面试题整理-网络协议">
-<meta name="twitter:description" content="HTTP协议状态码五类响应1XX 指示信息——请求已接收，继续处理； 2XX success——请求已被成功接收； 3XX redirection——要完成请求必须进行更进一步操作； 4XX 客户端错误——服务器无法处理请求或者语法错误； 5XX 服务器错误——服务器未能实现合法的请求； 常见状态代码200 OK：客户端请求成功 400 Bad Request：客户端请求有语法错误，不能被服务端所">
+<meta name="twitter:description" content="HTTP协议状态码五类响应1XX 指示信息——请求已接收，继续处理；">
   
     <link rel="alternative" href="/atom.xml" title="Ann&#39;s Death Note" type="application/atom+xml">
   
@@ -175,7 +175,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="HTTP协议状态码"><a href="#HTTP协议状态码" class="headerlink" title="HTTP协议状态码"></a>HTTP协议状态码</h3><h4 id="五类响应"><a href="#五类响应" class="headerlink" title="五类响应"></a>五类响应</h4><p>1XX 指示信息——请求已接收，继续处理；</p>
+        <h3 id="HTTP协议状态码"><a href="#HTTP协议状态码" class="headerlink" title="HTTP协议状态码"></a>HTTP协议状态码</h3><h4 id="五类响应"><a href="#五类响应" class="headerlink" title="五类响应"></a>五类响应</h4><p>1XX 指示信息——请求已接收，继续处理；<a id="more"></a></p>
 <p>2XX success——请求已被成功接收；</p>
 <p>3XX redirection——要完成请求必须进行更进一步操作；</p>
 <p>4XX 客户端错误——服务器无法处理请求或者语法错误；</p>
@@ -195,7 +195,7 @@
 <p>表示层：数据的表示、安全、压缩</p>
 <p>应用层：网络服务与最终用户的一个接口。eg. HTTP、FTP、SMTP</p>
 <h3 id="HTTP工作原理"><a href="#HTTP工作原理" class="headerlink" title="HTTP工作原理"></a>HTTP工作原理</h3><p>客户端发送请求给服务器，创建一个TCP连接，指定端口号，默认80，连接到服务器，服务器监听浏览器请求，一旦监听到客户端请求，分析请求类型，服务器会向客户端返回状态信息和数据内容。</p>
-<h4 id="get和post区别"><a href="#get和post区别" class="headerlink" title="get和post区别"></a>get和post区别</h4><ol>
+<h4 id="get和post区别"><a href="#get和post区别" class="headerlink" title="get和post区别"></a>get和post区别</h4><ul>
 <li><p>后退按钮get没有区别，post则会重新提交</p>
 </li>
 <li><p>get可以收藏为书签，可以被浏览器缓存，参数会保留在历史记录当中，安全性较差</p>
@@ -206,7 +206,7 @@
 </li>
 <li><p>get只允许ASCii，而post也允许二进制数据</p>
 </li>
-</ol>
+</ul>
 <h3 id="P-S-content-type"><a href="#P-S-content-type" class="headerlink" title="P.S. content-type"></a>P.S. content-type</h3><p>在Form元素的语法中，<code>content-type</code>表明提交数据的格式，指定将数据回发到服务器时浏览器使用的编码类型。 </p>
 <ul>
 <li><p><code>application/x-www-form-urlencoded</code>： 窗体数据被编码为名称/值对。这是标准的编码格式。 </p>
@@ -254,6 +254,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/10/09/php面试题整理-js/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          php面试题整理-js
+        
+      </div>
+    </a>
   
   
     <a href="/2017/10/08/LAMP-LNMP安装与配置/" id="article-nav-older" class="article-nav-link-wrap">
@@ -370,15 +379,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">error</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lamp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -390,15 +399,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">predis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -406,11 +407,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+                <a href="javascript:void(0)" class="js-tag color3">备忘</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -426,10 +427,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
               </li>
              
@@ -442,6 +439,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">predis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">session</a>
               </li>
              
@@ -450,15 +471,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -474,7 +491,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
             
             <div class="clearfix"></div>
