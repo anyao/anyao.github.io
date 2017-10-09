@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://annyao.cn">
   <title>CGI、fastCGI与php-fpm | Ann&#39;s Death Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CGI不同语言的解析器与 Web Server 之间的通信协议。">
+  <meta name="description" content="CGI不同语言的解析器与 Web Server 之间的通信协议。 fastCGICGI 效率很低，因为 Web Server 每收到一个请求都会 folk 一个进程，请求结束kill 掉这个进程。高并发时浪费资源，fastCGI的出现解决了这个问题。">
 <meta name="keywords" content="cgi,php-fpm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CGI、fastCGI与php-fpm">
 <meta property="og:url" content="https://annyao.cn/2017/10/09/CGI、fastCGI与php-fpm/index.html">
 <meta property="og:site_name" content="Ann&#39;s Death Note">
-<meta property="og:description" content="CGI不同语言的解析器与 Web Server 之间的通信协议。">
+<meta property="og:description" content="CGI不同语言的解析器与 Web Server 之间的通信协议。 fastCGICGI 效率很低，因为 Web Server 每收到一个请求都会 folk 一个进程，请求结束kill 掉这个进程。高并发时浪费资源，fastCGI的出现解决了这个问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-09T03:05:37.439Z">
+<meta property="og:updated_time" content="2017-10-09T03:26:52.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CGI、fastCGI与php-fpm">
-<meta name="twitter:description" content="CGI不同语言的解析器与 Web Server 之间的通信协议。">
+<meta name="twitter:description" content="CGI不同语言的解析器与 Web Server 之间的通信协议。 fastCGICGI 效率很低，因为 Web Server 每收到一个请求都会 folk 一个进程，请求结束kill 掉这个进程。高并发时浪费资源，fastCGI的出现解决了这个问题。">
   
     <link rel="alternative" href="/atom.xml" title="Ann&#39;s Death Note" type="application/atom+xml">
   
@@ -175,8 +175,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="CGI"><a href="#CGI" class="headerlink" title="CGI"></a>CGI</h3><p>不同语言的解析器与 Web Server 之间的通信协议。<br><a id="more"></a></p>
-<h3 id="fastCGI"><a href="#fastCGI" class="headerlink" title="fastCGI"></a>fastCGI</h3><p>CGI 效率很低，因为 Web Server 每收到一个请求都会 folk 一个进程，请求结束kill 掉这个进程。高并发时浪费资源，fastCGI的出现解决了这个问题。</p>
+        <h3 id="CGI"><a href="#CGI" class="headerlink" title="CGI"></a>CGI</h3><p>不同语言的解析器与 Web Server 之间的通信协议。</p>
+<h3 id="fastCGI"><a href="#fastCGI" class="headerlink" title="fastCGI"></a>fastCGI</h3><p>CGI 效率很低，因为 Web Server 每收到一个请求都会 folk 一个进程，请求结束kill 掉这个进程。高并发时浪费资源，fastCGI的出现解决了这个问题。<br><a id="more"></a></p>
 <p>fastCGI 每次处理完请求之后不会 kill 掉进程，而是保留这个进程。使其一次可以处理多个请求。</p>
 <h3 id="php-fpm"><a href="#php-fpm" class="headerlink" title="php-fpm"></a>php-fpm</h3><p><strong>php fastCGI proccess manager</strong> 是 fastCGI 进程管理器，是fastCGI的实现，并且实现了管理进程的功能。</p>
 <p>进程包括 master 进程和 worker 进程。master 进程只有一个，负责监听端口，接收来自Web Server的请求；worker 进程一般会有多个，其数量会在fpm中的配置进行定义。每个进程内部会嵌入 php 内部解析器。</p>
@@ -361,11 +361,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">predis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -374,6 +386,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -405,26 +425,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">整理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">predis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">session</a>
               </li>
              
@@ -433,11 +433,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
+                <a href="javascript:void(0)" class="js-tag color3">vi</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vi</a>
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -453,11 +457,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
             
             <div class="clearfix"></div>

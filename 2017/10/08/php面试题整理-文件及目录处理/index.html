@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://annyao.cn">
   <title>php面试题整理-文件及目录处理 | Ann&#39;s Death Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文件操作函数及几种打开模式  fopen()">
+  <meta name="description" content="文件操作函数及几种打开模式  fopen()  r 打开只读文件，该文件必须存在。 r+ 打开可读写的文件，该文件必须存在。  w 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。 w+ 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。 a 以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入">
 <meta name="keywords" content="php面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php面试题整理-文件及目录处理">
 <meta property="og:url" content="https://annyao.cn/2017/10/08/php面试题整理-文件及目录处理/index.html">
 <meta property="og:site_name" content="Ann&#39;s Death Note">
-<meta property="og:description" content="文件操作函数及几种打开模式  fopen()">
+<meta property="og:description" content="文件操作函数及几种打开模式  fopen()  r 打开只读文件，该文件必须存在。 r+ 打开可读写的文件，该文件必须存在。  w 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。 w+ 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。 a 以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-08T14:07:58.060Z">
+<meta property="og:updated_time" content="2017-10-09T03:28:25.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php面试题整理-文件及目录处理">
-<meta name="twitter:description" content="文件操作函数及几种打开模式  fopen()">
+<meta name="twitter:description" content="文件操作函数及几种打开模式  fopen()  r 打开只读文件，该文件必须存在。 r+ 打开可读写的文件，该文件必须存在。  w 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。 w+ 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。 a 以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入">
   
     <link rel="alternative" href="/atom.xml" title="Ann&#39;s Death Note" type="application/atom+xml">
   
@@ -179,9 +179,8 @@
 <li><p><strong>文件操作函数及几种打开模式</strong></p>
 <ol>
 <li><p>fopen()</p>
- <a id="more"></a>
 <blockquote>
-<p>r 打开只读文件，该文件必须存在。 </p>
+<p>r 打开只读文件，该文件必须存在。</p>
 <p>r+ 打开可读写的文件，该文件必须存在。 </p>
 <p>w 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。</p>
 <p>w+ 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。</p>
@@ -189,8 +188,9 @@
 <p>a+ 以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。 </p>
 <p>x 创建并以写入方式打开，将文件指针指向文件头。如果文件已存在，则 fopen() 调用失败并返回 FALSE，并生成一条 E_WARNING 级别的错误信息。如果文件不存在则尝试创建之。</p>
 <p>x+ 创建并以读写方式打开，其他的行为和 ‘x’ 一样。</p>
-</blockquote>
+ <a id="more"></a>     
 <p> P.S. 上述的形态字符串都可以再加一个b字符，如rb、w+b或ab＋等组合，加入b 字符用来告诉函数库打开的文件为二进制文件，而非纯文字文件。为移植性考虑，强烈建议在用 fopen() 打开文件时总是使用 ‘b’ 标记。</p>
+</blockquote>
 </li>
 <li><p>其它</p>
 <p> 写入：fwrite()、fputs()</p>
@@ -411,11 +411,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">predis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -424,6 +436,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,26 +475,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">整理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">predis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">session</a>
               </li>
              
@@ -483,11 +483,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
+                <a href="javascript:void(0)" class="js-tag color3">vi</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vi</a>
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,11 +507,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
             
             <div class="clearfix"></div>
