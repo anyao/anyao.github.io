@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ann&#39;s Death Note">
 <meta property="og:description" content="数据类型整型INT(0) 0 代表宽度，对大多数应用是没有意义的，它不会限制值的范围，只会影响显示字符的个数。为zerofill服务。 字符型 VARCHAR   用于存储可变长度字符串，比定长类型更节省空间；  使用1或者2个额外字节记录字符串的长度，列长度小于255字节，使用1个字节表示，否则2个；  如果存储内容超出指定长度，会被截断。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-09T06:39:57.505Z">
+<meta property="og:updated_time" content="2017-10-09T06:43:43.714Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php面试题整理-mysql">
 <meta name="twitter:description" content="数据类型整型INT(0) 0 代表宽度，对大多数应用是没有意义的，它不会限制值的范围，只会影响显示字符的个数。为zerofill服务。 字符型 VARCHAR   用于存储可变长度字符串，比定长类型更节省空间；  使用1或者2个额外字节记录字符串的长度，列长度小于255字节，使用1个字节表示，否则2个；  如果存储内容超出指定长度，会被截断。">
@@ -298,7 +298,7 @@ UPDATE A INNER JOIN B ON A.id = B.id SET A.c1 = B.c2 WHERE...
 SELECT * FROM A RIGHT JOIN B ON A.id = B.id
 </code></pre><h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>先说明如何定位低效sql语句，然后根据sql语句可能低效的原因做排查，先从索引着手，如果索引没有问题，考虑以下几个方面，数据访问的问题，长难查询句的问题还是一些特定类型优化的问题，逐一回答。</p>
 <h3 id="eg"><a href="#eg" class="headerlink" title="eg."></a>eg.</h3><p>简述项目中优化sql语句执行效率的方法，从哪些方面，sql语句性能如何分析？</p>
-<h6 id="分析-sql-查询慢的方法"><a href="#分析-sql-查询慢的方法" class="headerlink" title="分析 sql 查询慢的方法"></a>分析 sql 查询慢的方法</h6><ul>
+<h5 id="分析-sql-查询慢的方法"><a href="#分析-sql-查询慢的方法" class="headerlink" title="分析 sql 查询慢的方法"></a>分析 sql 查询慢的方法</h5><ul>
 <li><p>记录慢查询日志，用pt-query-digest</p>
 </li>
 <li><p>show profile</p>
@@ -315,8 +315,7 @@ show profile for query 临时表ID
 <li><p>explain / desc：分析单条sql语句    </p>
 </li>
 </ul>
-<p>####### 优化 ######</p>
-<p>1、数据访问：</p>
+<h5 id="优化-1"><a href="#优化-1" class="headerlink" title="优化"></a>优化</h5><p>1、数据访问：</p>
 <ul>
 <li><p>访问数据太多导致查询性能下降，eg. SELECT *… —— limit。</p>
 </li>
@@ -635,7 +634,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">error</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lamp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,7 +674,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,19 +682,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -695,15 +702,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">整理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -715,11 +722,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,26 +751,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php的面向对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">session</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
             
             <div class="clearfix"></div>
