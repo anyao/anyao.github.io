@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://annyao.cn">
-  <title>Archives | Ann&#39;s Death Note</title>
+  <title>php面试题整理-mysql | Ann&#39;s Death Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="PHP Developer,日常整理">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ann&#39;s Death Note">
-<meta property="og:url" content="https://annyao.cn/archives/index.html">
+  <meta name="description" content="数据类型整型INT(0) 0 代表宽度，对大多数应用是没有意义的，它不会限制值的范围，只会影响显示字符的个数。为zerofill服务。 字符型 VARCHAR   用于存储可变长度字符串，比定长类型更节省空间；  使用1或者2个额外字节记录字符串的长度，列长度小于255字节，使用1个字节表示，否则2个；  如果存储内容超出指定长度，会被截断。">
+<meta name="keywords" content="mysql,php面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php面试题整理-mysql">
+<meta property="og:url" content="https://annyao.cn/2017/10/09/php面试题整理-mysql/index.html">
 <meta property="og:site_name" content="Ann&#39;s Death Note">
+<meta property="og:description" content="数据类型整型INT(0) 0 代表宽度，对大多数应用是没有意义的，它不会限制值的范围，只会影响显示字符的个数。为zerofill服务。 字符型 VARCHAR   用于存储可变长度字符串，比定长类型更节省空间；  使用1或者2个额外字节记录字符串的长度，列长度小于255字节，使用1个字节表示，否则2个；  如果存储内容超出指定长度，会被截断。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-09T06:39:57.505Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ann&#39;s Death Note">
+<meta name="twitter:title" content="php面试题整理-mysql">
+<meta name="twitter:description" content="数据类型整型INT(0) 0 代表宽度，对大多数应用是没有意义的，它不会限制值的范围，只会影响显示字符的个数。为zerofill服务。 字符型 VARCHAR   用于存储可变长度字符串，比定长类型更节省空间；  使用1或者2个额外字节记录字符串的长度，列长度小于255字节，使用1个字节表示，否则2个；  如果存储内容超出指定长度，会被截断。">
   
     <link rel="alternative" href="/atom.xml" title="Ann&#39;s Death Note" type="application/atom+xml">
   
@@ -151,36 +155,343 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-php面试题整理-mysql" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      php面试题整理-mysql
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/09/php面试题整理-mysql/" class="archive-article-date">
+
+        
+        <a href="/2017/10/09/php面试题整理-mysql/" class="archive-article-date">
   	<time datetime="2017-10-09T03:30:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/09/php面试题整理-mysql/">php面试题整理-mysql</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h5 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h5><p>INT(0) 0 代表宽度，对大多数应用是没有意义的，它不会限制值的范围，只会影响显示字符的个数。为zerofill服务。</p>
+<h5 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h5><ul>
+<li><p>VARCHAR </p>
+<ul>
+<li><p>用于存储可变长度字符串，比定长类型更节省空间；</p>
+</li>
+<li><p>使用1或者2个额外字节记录字符串的长度，列长度小于255字节，使用1个字节表示，否则2个；</p>
+</li>
+<li><p>如果存储内容超出指定长度，会被截断。</p>
+<a id="more"></a>        </li>
+</ul>
+</li>
+<li><p>CHAR </p>
+<ul>
+<li><p>定长，根据定义的字符串长度分配足够的空间；</p>
+</li>
+<li><p>会根据需要采用空格进行填充方便进行比较，适合存储很短的字符串，或者所有值都接近同一个长度；</p>
+</li>
+<li><p>如果存储内容超出指定长度，会被截断。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>对于经常变更的数据，CHAR比VARCHAR更好，CHAR不容易产生碎片；</p>
+<p>对于非常短的列，CHAR比VARCHAR在存储空间上更有效率</p>
+<h5 id="日期和时间类型"><a href="#日期和时间类型" class="headerlink" title="日期和时间类型"></a>日期和时间类型</h5><ul>
+<li><p>尽量使用TIMESTAMP，比DATETIME空间效率高；</p>
+</li>
+<li><p>用整数保存时间戳的格式通常不方便处理；</p>
+</li>
+<li><p>如果需要储存微秒，可以使用bigint存储。</p>
+</li>
+</ul>
+<h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><h5 id="innoDB"><a href="#innoDB" class="headerlink" title="innoDB"></a>innoDB</h5><ul>
+<li><p>默认事务型引擎，数据存储在共享表空间，可以通过配置分开；</p>
+</li>
+<li><p>对主机间查询的性能高于其他类型的存储引擎；</p>
+</li>
+<li><p>从磁盘读取数据时自动在内存构建hash索引，插入数据时自动构建插入缓冲区；</p>
+</li>
+<li><p>通过一些机制和工具支持真正的热备份；</p>
+</li>
+<li><p>支持崩溃后的安全恢复；</p>
+</li>
+<li><p>支持行级锁；</p>
+</li>
+<li><p>支持外键。</p>
+</li>
+</ul>
+<h5 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h5><ul>
+<li><p>5.1之前，默认存储引擎；</p>
+</li>
+<li><p>拥有全文索引、压缩、空间函数；</p>
+</li>
+<li><p>不支持事务和行级锁，不支持崩溃后的安全恢复；</p>
+</li>
+<li><p>表从存储在两个文件，MYD和MYI；</p>
+</li>
+</ul>
+<h5 id="其他表引擎"><a href="#其他表引擎" class="headerlink" title="其他表引擎"></a>其他表引擎</h5><p>archive blackhole csv memory</p>
+<h2 id="锁机制"><a href="#锁机制" class="headerlink" title="锁机制"></a>锁机制</h2><p>共享锁/读锁：共享，不堵塞，多个用户可以同时读一个资源，互不干扰。</p>
+<p>排他锁/写锁：排他，一个写锁会阻塞其他的写锁和读锁，只允许一个人进行写入，防止其他用户读取正在写入的资源。</p>
+<h5 id="锁粒度"><a href="#锁粒度" class="headerlink" title="锁粒度"></a>锁粒度</h5><ul>
+<li><p>表锁：系统性能开销最小，会锁定整张表，MyISAM使用表锁。</p>
+</li>
+<li><p>行锁，最大程度地支持并发处理，但带来最大的锁开销，InnoDB使用。</p>
+</li>
+</ul>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h5 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h5><p>组合索引 外键索引 全文索引</p>
+<ul>
+<li><p>一个表只能有一个主键索引，可以有多个唯一索引；</p>
+</li>
+<li><p>主键索引一定是唯一索引，唯一索引不是主键索引；</p>
+</li>
+<li><p>主键可以与外检构成参照完整性约束，防止数据不一致。</p>
+</li>
+</ul>
+<h5 id="创建原则"><a href="#创建原则" class="headerlink" title="创建原则"></a>创建原则</h5><ul>
+<li><p>最适合索引的列是出现在where子句中的列，或者连接子句中的列而不是出现在select关键字后的列；</p>
+</li>
+<li><p>索引列的基数越大越好；</p>
+</li>
+<li><p>对字符串进行索引，应该制定一个前缀长度，可以节省大量的索引空间；</p>
+</li>
+<li><p>根据情况创建复合索引，可以提高查询效率；</p>
+</li>
+<li><p>避免创建过多索引，索引会额外占用磁盘空间，降低写操作效率；</p>
+</li>
+<li><p>主键尽可能选择较短的数据类型，可以有效减少索引的磁盘占用空间，提高查询效率。</p>
+</li>
+</ul>
+<h5 id="对性能的影响"><a href="#对性能的影响" class="headerlink" title="对性能的影响"></a>对性能的影响</h5><ul>
+<li><p>大大减少服务器需要扫描的数据量；</p>
+</li>
+<li><p>帮助服务器避免排序和临时表；</p>
+</li>
+<li><p>将随机I/O变顺序I/O；</p>
+</li>
+<li><p>大大提高查询素的，降低写的速度，占用磁盘；</p>
+</li>
+<li><p>主键可以与外检构成参考完整性约束，防止数据不一致。</p>
+</li>
+</ul>
+<h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ul>
+<li><p>复合索引遵循前缀原则;</p>
+</li>
+<li><p>like查询，%不能在前，可以使用全文索引（其替代sphinx）;</p>
+</li>
+<li><p>column is null 可以使用索引;</p>
+</li>
+<li><p>若mysql估计使用索引比全表扫描慢，会放弃使用索引;</p>
+</li>
+<li><p>如果or前的条件中的列有索引，后面没有，索引都不会被用到;</p>
+</li>
+<li><p>列类型是字符串，查询时一定要给值加引号，否则索引失效.</p>
+</li>
+</ul>
+<h2 id="关联更新"><a href="#关联更新" class="headerlink" title="关联更新"></a>关联更新</h2><pre><code>UPDATE A,B SET A.c1 = B.c1, A.c2 = B.c2 WHERE A.id = B.id
+UPDATE A INNER JOIN B ON A.id = B.id SET A.c1 = B.c2 WHERE...
+</code></pre><h2 id="全连接"><a href="#全连接" class="headerlink" title="全连接"></a>全连接</h2><pre><code>SELECT * FROM A LEFT JOIN B ON A.id = B.id UNION
+SELECT * FROM A RIGHT JOIN B ON A.id = B.id
+</code></pre><h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>先说明如何定位低效sql语句，然后根据sql语句可能低效的原因做排查，先从索引着手，如果索引没有问题，考虑以下几个方面，数据访问的问题，长难查询句的问题还是一些特定类型优化的问题，逐一回答。</p>
+<h3 id="eg"><a href="#eg" class="headerlink" title="eg."></a>eg.</h3><p>简述项目中优化sql语句执行效率的方法，从哪些方面，sql语句性能如何分析？</p>
+<h6 id="分析-sql-查询慢的方法"><a href="#分析-sql-查询慢的方法" class="headerlink" title="分析 sql 查询慢的方法"></a>分析 sql 查询慢的方法</h6><ul>
+<li><p>记录慢查询日志，用pt-query-digest</p>
+</li>
+<li><p>show profile</p>
+</li>
+</ul>
+<pre><code>set profiling = 1; 开启，服务器上执行的所有语句会检测消耗的时间，存到临时表中
+show profiles
+show profile for query 临时表ID
+</code></pre><ul>
+<li><p>show status：会返回一些计数器，<code>show global status</code>查看服务器级别的所有计数；有时根据这些计数，可以猜测出哪些操作代价较高或者消耗时间多。</p>
+</li>
+<li><p>show processlist：观察是否有大量线程处于不正常的状态或特征</p>
+</li>
+<li><p>explain / desc：分析单条sql语句    </p>
+</li>
+</ul>
+<p>####### 优化 ######</p>
+<p>1、数据访问：</p>
+<ul>
+<li><p>访问数据太多导致查询性能下降，eg. SELECT *… —— limit。</p>
+</li>
+<li><p>确定应用程序是否在检索大量超过需要的数据，可能太多行或列；确认mysql服务器是否在分析大量不必要的数据行</p>
+<ul>
+<li><p>多表关联：A.id|,B.name </p>
+</li>
+<li><p>缓存。</p>
+</li>
+</ul>
+</li>
+<li><p>是否在扫描额外的记录：使用explain来进行分析，如果发现查询需要扫描大量的数据但只返回少数的行，可通过如下技巧优化：</p>
+<ul>
+<li><p>使用索引覆盖扫描，把所有有用的列都放到索引中，这样存储引擎不需要回表获取对应行就可以返回结果；</p>
+</li>
+<li><p>改变数据库和表的结构，修改数据表的范式（冗余）；</p>
+</li>
+<li><p>重写sql语句，让优化器可以以更优的方式执行查询。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>2、优化长难的查询语句：</p>
+<ul>
+<li><p>切分查询：将一次大的查询分为多个小的相同的查询。eg. 一次性删除1000万的数据要比一次删除1万，暂停一会的方案会更加损耗服务器开销。</p>
+</li>
+<li><p>分解关联语句：</p>
+<ul>
+<li><p>将一条关联语句分解成多条sql来执行让缓存的效率更高；</p>
+</li>
+<li><p>执行单个查询可以减少锁竞争；</p>
+</li>
+<li><p>在应用层做关联可以更容易对数据库进行拆分：分库分表。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>3、优化特定类型的查询语句：</p>
+<ul>
+<li><p>count()</p>
+<ul>
+<li><p>count(<em>) 中 </em> 会忽略所有的列，直接统计所有列数，因此不要使用count(列名)</p>
+</li>
+<li><p>myisam没有任何where条件中的count(*)分非常快</p>
+</li>
+<li><p>可以使用explain查询近似值，用近似值来替代count(*)</p>
+</li>
+<li><p>增加汇总表；</p>
+</li>
+<li><p>使用缓存。</p>
+</li>
+</ul>
+</li>
+<li><p>优化关联查询</p>
+<ul>
+<li><p>确定ON或者USING子句的列上有索引；</p>
+</li>
+<li><p>确保 <code>GROUP BY</code> 和 <code>ORDER BY</code> 中只有一个表中的列，这样 MySQL <strong>才可能使用索引</strong>。</p>
+</li>
+</ul>
+</li>
+<li><p>优化子查询：尽可能使用关联查询代替</p>
+</li>
+<li><p>优化group by和distinct</p>
+<ul>
+<li><p>索引是最有效的优化方法；</p>
+</li>
+<li><p>关联查询中，使用标识列进行分组的效率会更高；</p>
+</li>
+<li><p>如果不需要 <code>order by</code>，进行<code>group by</code>时使用<code>order by null</code>，mysql不会再进行文件排序；</p>
+</li>
+<li><p>with rollup 超级聚合，可以挪到程序中处理</p>
+</li>
+</ul>
+</li>
+<li><p>优化limit分页：limit偏移量大的时候，查询效率低，可以记录上次查询的最大id，下次查询时直接根据该id来查询。</p>
+</li>
+<li><p>优化union：union all的效率高于union</p>
+</li>
+</ul>
+<h2 id="分表分区"><a href="#分表分区" class="headerlink" title="分表分区"></a>分表分区</h2><h5 id="分区工作原理"><a href="#分区工作原理" class="headerlink" title="分区工作原理"></a>分区工作原理</h5><p>对用户而言，分区表是一个独立的逻辑表，但底层mysql将其分成了多个物理子表，这对用户是透明的，每个分区表都会使用一个独立的表文件。</p>
+<p>创建表示使用partition by子句定义每个分区存放的数据，执行查询时，优化器会根据分区定义过滤那些没有我们需要数据分分区，只需要查询所需数据所在的分区即可。</p>
+<h5 id="分区使用场景"><a href="#分区使用场景" class="headerlink" title="分区使用场景"></a>分区使用场景</h5><ul>
+<li><p>表非常大，无法全部存入内存，或者只在表的最后有热点数据，其他都是历史数据</p>
+</li>
+<li><p>分区表的数据更易维护，可以对独立的分区进行独立的操作</p>
+</li>
+<li><p>分区表的数据可以分布在不同的机器上，从而高效使用资源</p>
+</li>
+</ul>
+<h5 id="分区限制"><a href="#分区限制" class="headerlink" title="分区限制"></a>分区限制</h5><ul>
+<li><p>一个表只能使用1024个分区</p>
+</li>
+<li><p>5.1版本中，分区表表达式必须是整数，5.5可以使用列分区</p>
+</li>
+<li><p>分区字段中如果有主键和唯一索引列，那么主键列和唯一列都必须包含进来</p>
+</li>
+<li><p>无法使用外键索引</p>
+</li>
+<li><p>需要对现有表结构进行修改</p>
+</li>
+<li><p>所有分区表都必须使用相同的存储引擎</p>
+</li>
+<li><p>分区函数中可以使用的函数和表达式也会有一些限制</p>
+</li>
+<li><p>某些存储引擎不支持分区</p>
+</li>
+<li><p>对于myisam的分区表，不能使用load index into cache</p>
+</li>
+<li><p>对于myisam表，使用分区表时需要打开更多的文件描述符</p>
+</li>
+</ul>
+<h5 id="分库分表原理"><a href="#分库分表原理" class="headerlink" title="分库分表原理"></a>分库分表原理</h5><p>通过一些hash算法或者工具实现将一张数据表垂直或水平进行物理分割</p>
+<h5 id="分库分表适用场景"><a href="#分库分表适用场景" class="headerlink" title="分库分表适用场景"></a>分库分表适用场景</h5><ul>
+<li><p>单表记录条数达到百万到千万级别时</p>
+</li>
+<li><p>解决表锁的文件</p>
+</li>
+</ul>
+<h5 id="分库分表缺点"><a href="#分库分表缺点" class="headerlink" title="分库分表缺点"></a>分库分表缺点</h5><ul>
+<li><p>有些分表的策略基于应用层的逻辑算法，一旦逻辑算法改变，整个分表逻辑都会改变，拓展性差</p>
+</li>
+<li><p>对于应用层来说，逻辑算法无疑增加开发成本</p>
+</li>
+</ul>
+<h2 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h2><h5 id="主从复制工作原理"><a href="#主从复制工作原理" class="headerlink" title="主从复制工作原理"></a>主从复制工作原理</h5><ul>
+<li><p>在主库上把数据更改记录到二进制日志</p>
+</li>
+<li><p>从库将主库的日志复制到自己的中继日志</p>
+</li>
+<li><p>从库读取日志中的事件，将其虫放到从库数据中</p>
+</li>
+</ul>
+<h5 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h5><ul>
+<li><p>数据分布：随意停止或开始复制，并在不同的地理位置分布数据备份</p>
+</li>
+<li><p>负载均衡：降低单个服务器的压力</p>
+</li>
+<li><p>高可用和故障切换：帮助应用程序避免单点失败</p>
+</li>
+<li><p>升级测试：可以使用更高版本的mysql作为从库</p>
+</li>
+</ul>
+<h5 id="eg-1"><a href="#eg-1" class="headerlink" title="eg."></a>eg.</h5><p>设定网站的用户数量在千万级，但是活跃用户的数量只有1%，如果优化数据库提高访问速度？</p>
+<ul>
+<li><p>mysql分区，活跃用户区/不活跃用户表</p>
+</li>
+<li><p>水平分表</p>
+</li>
+</ul>
+<h2 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h2><ul>
+<li><p>预处理语句防sql注入</p>
+<ul>
+<li>prepare </li>
+</ul>
+</li>
+</ul>
+<pre><code>delete from user where id = ?
+</code></pre><ul>
+<li>尽量使用pdo</li>
+</ul>
+<ul>
+<li><p>写入数据库的数据要进行特殊字符的转义</p>
+</li>
+<li><p>查询错误信息不要返回给用户，将错误记录到日志</p>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -196,1199 +507,53 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/09/php面试题整理-linux基础/" class="archive-article-date">
-  	<time datetime="2017-10-09T03:07:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/09/php面试题整理-linux基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">php面试题整理-linux基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/09/php面试题整理-linux基础/">php面试题整理-linux基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/09/CGI、fastCGI与php-fpm/" class="archive-article-date">
-  	<time datetime="2017-10-09T02:52:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/09/CGI、fastCGI与php-fpm/">CGI、fastCGI与php-fpm</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cgi</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">php-fpm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/09/php面试题整理-js/" class="archive-article-date">
-  	<time datetime="2017-10-09T02:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/09/php面试题整理-js/">php面试题整理-js</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/08/php面试题整理-网络协议/" class="archive-article-date">
-  	<time datetime="2017-10-08T08:47:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/08/php面试题整理-网络协议/">php面试题整理-网络协议</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/08/LAMP-LNMP安装与配置/" class="archive-article-date">
-  	<time datetime="2017-10-08T08:35:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/08/LAMP-LNMP安装与配置/">LAMP/LNMP安装与配置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">lnmp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">lamp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/08/php面试题整理-会话控制技术/" class="archive-article-date">
-  	<time datetime="2017-10-08T07:21:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/08/php面试题整理-会话控制技术/">php面试题整理-会话控制技术</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/08/php面试题整理-文件及目录处理/" class="archive-article-date">
-  	<time datetime="2017-10-08T02:49:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/08/php面试题整理-文件及目录处理/">php面试题整理-文件及目录处理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/08/php面试题整理-正则表达式/" class="archive-article-date">
-  	<time datetime="2017-10-08T02:29:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/08/php面试题整理-正则表达式/">php面试题整理-正则表达式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/08/php面试题整理-变量与常量/" class="archive-article-date">
-  	<time datetime="2017-10-08T02:28:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/08/php面试题整理-变量与常量/">php面试题整理-变量与常量</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/06/lnmp源码安装-未完待续/" class="archive-article-date">
-  	<time datetime="2017-10-06T14:11:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/06/lnmp源码安装-未完待续/">lnmp源码安装-未完待续</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/01/php的异常处理/" class="archive-article-date">
-  	<time datetime="2017-10-01T07:22:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/01/php的异常处理/">php的异常处理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">php核心技术与最佳实践</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">异常处理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/01/php的反射/" class="archive-article-date">
-  	<time datetime="2017-10-01T05:55:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/01/php的反射/">php的反射</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">php核心技术与最佳实践</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">反射</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/01/面向对象的形与本/" class="archive-article-date">
-  	<time datetime="2017-10-01T04:56:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/01/面向对象的形与本/">面向对象的形与本</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">php核心技术与最佳实践</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php的面向对象</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/24/Redis的过期键删除策略/" class="archive-article-date">
-  	<time datetime="2017-09-24T14:29:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/24/Redis的过期键删除策略/">Redis的过期键删除策略</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">过期删除策略</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/21/session存入memcached/" class="archive-article-date">
-  	<time datetime="2017-09-21T14:52:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/21/session存入memcached/">session存入memcached</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">memcached</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">session</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/21/memcached的get-miss/" class="archive-article-date">
-  	<time datetime="2017-09-21T14:20:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/21/memcached的get-miss/">memcached的get_miss</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">memcached</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LRU</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">懒惰模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/16/redis的设计与实现/" class="archive-article-date">
-  	<time datetime="2017-09-16T00:24:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/16/redis的设计与实现/">redis的设计与实现</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/12/两种架构模式-分层与MVC/" class="archive-article-date">
-  	<time datetime="2017-09-12T09:24:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/12/两种架构模式-分层与MVC/">两种架构模式:分层与MVC</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MVC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">三层架构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/07/Predis/" class="archive-article-date">
-  	<time datetime="2017-09-07T07:52:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/07/Predis/">Predis</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">predis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/06/替换Angularjs解析符/" class="archive-article-date">
-  	<time datetime="2017-09-06T15:11:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/06/替换Angularjs解析符/">替换Angularjs解析符</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常整理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/02/ERR-CACHE-MISS解决办法/" class="archive-article-date">
-  	<time datetime="2017-09-02T02:53:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/02/ERR-CACHE-MISS解决办法/">ERR_CACHE_MISS解决办法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">error</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/01/redis入门指南/" class="archive-article-date">
-  	<time datetime="2017-09-01T09:37:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/01/redis入门指南/">redis入门指南</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/30/redis同memcached比较/" class="archive-article-date">
-  	<time datetime="2017-08-30T13:18:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/30/redis同memcached比较/">redis同memcached比较</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/27/git的push与fetch/" class="archive-article-date">
-  	<time datetime="2017-08-27T12:50:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/27/git的push与fetch/">git的push与fetch</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">备忘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/27/linux下安装redis/" class="archive-article-date">
-  	<time datetime="2017-08-27T12:13:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/27/linux下安装redis/">linux下安装redis</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/27/vi的三种模式/" class="archive-article-date">
-  	<time datetime="2017-08-27T06:29:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-27</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/27/vi的三种模式/">vi的三种模式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">整理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">vi</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/27/linux根目录/" class="archive-article-date">
-  	<time datetime="2017-08-27T03:50:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/27/linux根目录/">linux根目录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/26/linux常用指令/" class="archive-article-date">
-  	<time datetime="2017-08-26T09:49:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/26/linux常用指令/">linux常用指令</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">备忘</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/22/MySQL必知必会/" class="archive-article-date">
-  	<time datetime="2017-08-22T06:40:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/22/MySQL必知必会/">MySQL必知必会</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -1408,8 +573,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
