@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://annyao.cn">
-  <title>变量与常量 | Ann&#39;s Death Note</title>
+  <title>php面试题整理-CDN加速 | Ann&#39;s Death Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="引用变量  在 PHP 中，变量和值是两个概念。PHP是一种弱类型语言，值在PHP的内部（zend引擎），被存放在一个zval结构体中，这个结构体中，除了包含了值的类型，数据外，还包含两个字节的信息。一个是 is_ref，是一个bool值，用来标识这个值是否是一个强制引用。第二个额外字节 是refcount，用来表示指向这个值的变量（也称符号即symbol）的个数。如果refcount为0，那么">
+  <meta name="description" content="Content Delivery Network 内容分发网络 在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络。CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。">
 <meta name="keywords" content="php面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="变量与常量">
-<meta property="og:url" content="https://annyao.cn/2017/10/10/变量与常量/index.html">
+<meta property="og:title" content="php面试题整理-CDN加速">
+<meta property="og:url" content="https://annyao.cn/2017/10/10/php面试题整理-CDN加速/index.html">
 <meta property="og:site_name" content="Ann&#39;s Death Note">
-<meta property="og:description" content="引用变量  在 PHP 中，变量和值是两个概念。PHP是一种弱类型语言，值在PHP的内部（zend引擎），被存放在一个zval结构体中，这个结构体中，除了包含了值的类型，数据外，还包含两个字节的信息。一个是 is_ref，是一个bool值，用来标识这个值是否是一个强制引用。第二个额外字节 是refcount，用来表示指向这个值的变量（也称符号即symbol）的个数。如果refcount为0，那么">
+<meta property="og:description" content="Content Delivery Network 内容分发网络 在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络。CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-10T06:18:00.281Z">
+<meta property="og:updated_time" content="2017-10-10T07:32:58.692Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="变量与常量">
-<meta name="twitter:description" content="引用变量  在 PHP 中，变量和值是两个概念。PHP是一种弱类型语言，值在PHP的内部（zend引擎），被存放在一个zval结构体中，这个结构体中，除了包含了值的类型，数据外，还包含两个字节的信息。一个是 is_ref，是一个bool值，用来标识这个值是否是一个强制引用。第二个额外字节 是refcount，用来表示指向这个值的变量（也称符号即symbol）的个数。如果refcount为0，那么">
+<meta name="twitter:title" content="php面试题整理-CDN加速">
+<meta name="twitter:description" content="Content Delivery Network 内容分发网络 在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络。CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。">
   
     <link rel="alternative" href="/atom.xml" title="Ann&#39;s Death Note" type="application/atom+xml">
   
@@ -155,80 +155,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-变量与常量" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-php面试题整理-CDN加速" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      变量与常量
+      php面试题整理-CDN加速
     </h1>
   
 
         
-        <a href="/2017/10/10/变量与常量/" class="archive-article-date">
-  	<time datetime="2017-10-10T06:17:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+        <a href="/2017/10/10/php面试题整理-CDN加速/" class="archive-article-date">
+  	<time datetime="2017-10-10T06:49:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p><strong>引用变量</strong><br>  在 PHP 中，变量和值是两个概念。PHP是一种弱类型语言，值在PHP的内部（zend引擎），被存放在一个zval结构体中，这个结构体中，除了包含了值的类型，数据外，还包含两个字节的信息。一个是 <code>is_ref</code>，是一个bool值，用来标识这个值是否是一个<strong>强制引用</strong>。第二个额外字节 是<code>refcount</code>，用来表示指向这个值的变量（也称符号即symbol）的个数。如果refcount为0，那么这个值就可以被回收了。</p>
-  <a id="more"></a>
-<p>  所以，引用意味着用不同的名字访问同一个内容（值）；</p>
-<ul>
-<li><p>ZVAL记录变量引用情况，可以使用 <code>xdebug_debug_zval()</code> 函数来输出 <code>refcount</code> 和 <code>is_ref</code> 的值。</p>
+        <p>Content Delivery Network 内容分发网络</p>
+<p>在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络。CDN系统能够实时地根据网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。<br><a id="more"></a></p>
+<h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul>
+<li><p>本地Cache加速，提高了企业站点（尤其含有大量图片和静态网页站点）的访问速度</p>
 </li>
-<li><p>写时复制（COPY ON WRITE）</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$i = 4;   </div><div class="line">// i:(refcount=1, is_ref=0),int 4</div><div class="line"></div><div class="line">$j = $i;   </div><div class="line">// i:(refcount=2, is_ref=0),int 4</div><div class="line">// j:(refcount=2, is_ref=0),int 4</div><div class="line"></div><div class="line">$j = 5; </div><div class="line">// i:(refcount=1, is_ref=0),int 4</div><div class="line">// j:(refcount=1, is_ref=0),int 5</div></pre></td></tr></table></figure>
-<p>  1、 内核创建一个zval指针，并且为其以堆的方式开辟空间，让指针指向这个空间，将zval中的成员引用计数置为1，类型标记为整形，并且申请一个zvalue_value指针，同样以堆的方式以其开辟空间,同时将该联合体中的zval赋值为4,并且在symbal_table的hash表中记录变量i和zval指针的映射关系；</p>
-<p>  2、没有在申请内存空间，在zval的成员中引用计数标记为2；</p>
-<p>  3、内核重新创建zval指针，重复下 1 操作，重点是将旧的zval引用计数标记为1。</p>
-<p>  P.S. 对象本身就是引用传递,没有COW（想复制可以用clone。</p>
+<li><p>跨运营商的网络加速，保证不同网络的用户都得到良好的访问质量</p>
 </li>
-<li><p>取消引用</p>
-<p>  unset 只会取消引用，不会销毁空间。</p>
+<li><p>远程访问用户根据DNS负载均衡技术智能自动选择Cache服务器</p>
+</li>
+<li><p>自动生成服务器的远程Mirror（镜像）cache服务器，远程用户访问时从cache服务器上读取数据，减少远程访问的带宽、分担网络流量、减轻原站点web服务器负载等功能</p>
+</li>
+<li><p>广泛分布的CDN节点加上节点之间的智能冗余机制，可以有效地预防黑客入侵</p>
 </li>
 </ul>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>传统访问：用户在浏览器输入域名发起请求 –&gt; 解析域名获取服务器IP地址 –&gt; 根据IP地址找到对应的服务器 –&gt; 服务器相应并返回数据</p>
+<p>使用CDN访问：用户发起请求 –&gt; 智能DNS的解析（根据IP判断地理位置、接入网类型、选择路由最短和负载最轻的服务器） –&gt; 取得缓存服务器IP –&gt; 把内容返回给用户（如果缓存中有） –&gt; 向源站发起请求 –&gt; 将结果返回给用户 –&gt; 将结果存入缓存服务器</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
+<li><p>BAT等提供CDN服务</p>
 </li>
-<li><p><strong>常量</strong>。</p>
-<ul>
-<li><p>字符串的定义方式及区别</p>
-<p>  定义：单引号、双引号、heredoc/newdoc</p>
-<p>  区别：单引号不能解析转义字符，只可解析单引号、反斜线本身</p>
+<li><p>可用LVS做4层负载均衡</p>
 </li>
-<li><p>const和define的区别<br>  const更快，是语言结构；define是函数<br>  define不能用于类常量，const可以</p>
-<p>P.S. 常量一经定义，不能修改和删除。<strong>FILE</strong>返回文件的路径和文件名</p>
-</li>
-</ul>
-</li>
-<li><p><strong>超全局变量</strong></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//  http://localhost/index.php/foo?id=666&amp;name=ann</div><div class="line"></div><div class="line">$_SERVER[&apos;SERVER_ADDR&apos;]     // 服务器IP地址</div><div class="line">$_SERVER[&apos;REMOTE_ADDR&apos;]     // 客户端IP地址 </div><div class="line">$_SERVER[&apos;QUERY_STRING&apos;]    // get时，返回查询字符串 id=666&amp;name=ann</div><div class="line">$_SERVER[&apos; REQUEST_URI&apos;]   // 完整URL地址（不包括主机名）/index.php/foo?id=666&amp;name=ann</div><div class="line">$_SERVER[&apos;PATH_INFO&apos;]   // URL中的路径部分 /foo</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>运算符</strong></p>
-<p>  递增/递减 &gt; ! &gt; 算数运算符 &gt; 大小比较 &gt; (不)相等比较 &gt; 引用 &gt; 位运算符(^)&gt; 位运算符(|) &gt; 逻辑与 &gt; 逻辑或 &gt; 三目 &gt; 赋值 &gt; and &gt; xor &gt; or</p>
-</li>
-<li><p><strong>遍历数组的三种方式</strong></p>
-<p>  for 索引</p>
-<p>  foreach 索引、关联</p>
-<p>  while、list()、each() 索引、关联</p>
-<p>  while、list()、each()组合不会reset() 重置指针，而foreach会</p>
-<p>  使用elseif的一个基本原则，把优先范围小的条件放在前面处理</p>
-<p>  switch后面的表达式的数据类型只能是整形、浮点类型或者字符串</p>
-</li>
-<li><p><strong>静态变量</strong></p>
-<p>  静态变量仅在局部函数域中存在，但当程序执行离开此作用域是，其值并不会消失。</p>
-<p>  仅初始化一次，需赋值</p>
-</li>
-<li><p><strong>外部文件导入</strong></p>
-<p>  include/require包含并运行指定文件</p>
-<p>  如果给出路径名按照路径来找，否则从include_path中查找；如果include_path中也没有，则从调用脚本文件所在目录和当前工作目录下寻找</p>
-<p>  加载过程中未找到文件则include会warning；require会fatal error</p>
+<li><p>可用Nginx、Varnish、Squid、Apache TrafficServer做7层负载均衡和cache</p>
 </li>
 </ul>
+<h3 id="反向代理实现"><a href="#反向代理实现" class="headerlink" title="反向代理实现"></a>反向代理实现</h3><p>squid、nginx</p>
 
       
 
@@ -261,9 +232,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/10/10/php面试题整理-动态语言的静态化/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          php面试题整理-动态语言的静态化
+        
+      </div>
+    </a>
   
-    <a href="/2017/10/10/php面试题整理-nginx缓存机制/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">php面试题整理-nginx缓存机制</div>
+  
+    <a href="/2017/10/10/php面试题整理-缓存机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">php面试题整理-缓存机制</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -376,18 +356,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">error</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
               </li>
              
@@ -408,11 +376,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+                <a href="javascript:void(0)" class="js-tag color1">error</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -420,15 +384,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -444,15 +428,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -464,10 +444,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">session</a>
               </li>
              
@@ -476,11 +452,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
+                <a href="javascript:void(0)" class="js-tag color3">vi</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,6 +461,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
              
               <li class="article-tag-list-item">

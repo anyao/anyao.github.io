@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://annyao.cn">
   <title>php面试题整理-功能设计 | Ann&#39;s Death Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据表设计   表创建语句  选择php连接数据库方式   ###eg. ### 在线留言本，实现在线留言功能，信息存储到数据库。设计数据表内容以及使用php编码完成。  表创建语句  CREATE TABLE message(     id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,     title VARCHAR(120) NOT">
+  <meta name="description" content="数据表设计   表创建语句  选择php连接数据库方式   ###eg. ### 在线留言本，实现在线留言功能，信息存储到数据库。设计数据表内容以及使用php编码完成。  表创建语句">
 <meta name="keywords" content="php面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php面试题整理-功能设计">
 <meta property="og:url" content="https://annyao.cn/2017/10/09/php面试题整理-功能设计/index.html">
 <meta property="og:site_name" content="Ann&#39;s Death Note">
-<meta property="og:description" content="数据表设计   表创建语句  选择php连接数据库方式   ###eg. ### 在线留言本，实现在线留言功能，信息存储到数据库。设计数据表内容以及使用php编码完成。  表创建语句  CREATE TABLE message(     id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,     title VARCHAR(120) NOT">
+<meta property="og:description" content="数据表设计   表创建语句  选择php连接数据库方式   ###eg. ### 在线留言本，实现在线留言功能，信息存储到数据库。设计数据表内容以及使用php编码完成。  表创建语句">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-09T07:52:39.396Z">
+<meta property="og:updated_time" content="2017-10-10T06:43:34.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php面试题整理-功能设计">
-<meta name="twitter:description" content="数据表设计   表创建语句  选择php连接数据库方式   ###eg. ### 在线留言本，实现在线留言功能，信息存储到数据库。设计数据表内容以及使用php编码完成。  表创建语句  CREATE TABLE message(     id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,     title VARCHAR(120) NOT">
+<meta name="twitter:description" content="数据表设计   表创建语句  选择php连接数据库方式   ###eg. ### 在线留言本，实现在线留言功能，信息存储到数据库。设计数据表内容以及使用php编码完成。  表创建语句">
   
     <link rel="alternative" href="/atom.xml" title="Ann&#39;s Death Note" type="application/atom+xml">
   
@@ -186,8 +186,8 @@
 <p>###eg. ###</p>
 <p>在线留言本，实现在线留言功能，信息存储到数据库。设计数据表内容以及使用php编码完成。</p>
 <ul>
-<li>表创建语句</li>
-</ul>
+<li><p>表创建语句</p>
+<a id="more"></a>
 <pre><code>CREATE TABLE message(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(120) NOT NULL DEFAULT &apos;&apos;,
@@ -196,7 +196,7 @@
     user_name VARCHAR(32) UNSIGNED NOT NULL DEFAULT &apos;&apos;,
     KEY message_user_name(user_name)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-</code></pre><ul>
+</code></pre></li>
 <li><p>连接方式 </p>
 <p>  PDO / MYSQLI / MYSQL</p>
 </li>
@@ -377,18 +377,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">error</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
               </li>
              
@@ -409,11 +397,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+                <a href="javascript:void(0)" class="js-tag color1">error</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -421,15 +405,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -445,15 +449,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,10 +465,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">session</a>
               </li>
              
@@ -477,11 +473,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
+                <a href="javascript:void(0)" class="js-tag color3">vi</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,6 +482,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
              
               <li class="article-tag-list-item">

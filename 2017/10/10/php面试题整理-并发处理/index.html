@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://annyao.cn">
-  <title>php面试题整理-HTTP缓存机制 | Ann&#39;s Death Note</title>
+  <title>php面试题整理-并发处理 | Ann&#39;s Death Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HTTP缓存分类如果请求成功，status code会有三种情况： 200 from cache：直接从本地缓存中获取响应，最快速，最省流量，因为根本没有向服务器发送请求。 304 not modified：协商缓存，浏览器在本地没有命中的情况下请求头中发送一定的校验数据到服务端，如果服务端数据没有改变，浏览器从本地缓存响应，返回304。 快速，发送的数据很少，只返回一些基本的响应头信息，数据量很">
+  <meta name="description" content="线程与进程的区别1、线程是进程内的一个执行单元，进程内至少有一个线程，它们共享进程的地址空间，而进程有自己独立的地址空间 2、进程是资源分配和拥有的单位，同一个进程内的线程共享进程的资源 3、线程是处理器调度的基本单元，但进程不是 4、两者均可并发执行 5、每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口，但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制">
 <meta name="keywords" content="php面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="php面试题整理-HTTP缓存机制">
-<meta property="og:url" content="https://annyao.cn/2017/10/10/php面试题整理-HTTP缓存机制/index.html">
+<meta property="og:title" content="php面试题整理-并发处理">
+<meta property="og:url" content="https://annyao.cn/2017/10/10/php面试题整理-并发处理/index.html">
 <meta property="og:site_name" content="Ann&#39;s Death Note">
-<meta property="og:description" content="HTTP缓存分类如果请求成功，status code会有三种情况： 200 from cache：直接从本地缓存中获取响应，最快速，最省流量，因为根本没有向服务器发送请求。 304 not modified：协商缓存，浏览器在本地没有命中的情况下请求头中发送一定的校验数据到服务端，如果服务端数据没有改变，浏览器从本地缓存响应，返回304。 快速，发送的数据很少，只返回一些基本的响应头信息，数据量很">
+<meta property="og:description" content="线程与进程的区别1、线程是进程内的一个执行单元，进程内至少有一个线程，它们共享进程的地址空间，而进程有自己独立的地址空间 2、进程是资源分配和拥有的单位，同一个进程内的线程共享进程的资源 3、线程是处理器调度的基本单元，但进程不是 4、两者均可并发执行 5、每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口，但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-10T06:08:10.007Z">
+<meta property="og:updated_time" content="2017-10-10T13:31:37.765Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php面试题整理-HTTP缓存机制">
-<meta name="twitter:description" content="HTTP缓存分类如果请求成功，status code会有三种情况： 200 from cache：直接从本地缓存中获取响应，最快速，最省流量，因为根本没有向服务器发送请求。 304 not modified：协商缓存，浏览器在本地没有命中的情况下请求头中发送一定的校验数据到服务端，如果服务端数据没有改变，浏览器从本地缓存响应，返回304。 快速，发送的数据很少，只返回一些基本的响应头信息，数据量很">
+<meta name="twitter:title" content="php面试题整理-并发处理">
+<meta name="twitter:description" content="线程与进程的区别1、线程是进程内的一个执行单元，进程内至少有一个线程，它们共享进程的地址空间，而进程有自己独立的地址空间 2、进程是资源分配和拥有的单位，同一个进程内的线程共享进程的资源 3、线程是处理器调度的基本单元，但进程不是 4、两者均可并发执行 5、每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口，但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制">
   
     <link rel="alternative" href="/atom.xml" title="Ann&#39;s Death Note" type="application/atom+xml">
   
@@ -155,58 +155,106 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-php面试题整理-HTTP缓存机制" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-php面试题整理-并发处理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      php面试题整理-HTTP缓存机制
+      php面试题整理-并发处理
     </h1>
   
 
         
-        <a href="/2017/10/10/php面试题整理-HTTP缓存机制/" class="archive-article-date">
-  	<time datetime="2017-10-10T05:41:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+        <a href="/2017/10/10/php面试题整理-并发处理/" class="archive-article-date">
+  	<time datetime="2017-10-10T08:44:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="HTTP缓存分类"><a href="#HTTP缓存分类" class="headerlink" title="HTTP缓存分类"></a>HTTP缓存分类</h5><p>如果请求成功，status code会有三种情况：</p>
-<p>200 from cache：直接从本地缓存中获取响应，最快速，最省流量，因为根本没有向服务器发送请求。</p>
-<p>304 not modified：协商缓存，浏览器在本地没有命中的情况下请求头中发送一定的校验数据到服务端，如果服务端数据没有改变，浏览器从本地缓存响应，返回304。</p>
-<p>快速，发送的数据很少，只返回一些基本的响应头信息，数据量很小，不发送实际相应体。<br><a id="more"></a><br>200 ok</p>
-<p>以上两种缓存全都失败，服务器返回完整响应。没有用缓存，相对最慢。</p>
-<h5 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h5><p>Pragma &gt; Cache-Control &gt; Expires</p>
-<h5 id="缓存策略"><a href="#缓存策略" class="headerlink" title="缓存策略"></a>缓存策略</h5><p>适合缓存的内容</p>
+        <h5 id="线程与进程的区别"><a href="#线程与进程的区别" class="headerlink" title="线程与进程的区别"></a>线程与进程的区别</h5><p>1、线程是进程内的一个执行单元，进程内至少有一个线程，它们共享进程的地址空间，而进程有自己独立的地址空间</p>
+<p>2、进程是资源分配和拥有的单位，同一个进程内的线程共享进程的资源</p>
+<p>3、线程是处理器调度的基本单元，但进程不是</p>
+<p>4、两者均可并发执行</p>
+<p>5、每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口，但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制<br><a id="more"></a></p>
+<h5 id="线程与协程的区别"><a href="#线程与协程的区别" class="headerlink" title="线程与协程的区别"></a>线程与协程的区别</h5><p>1、一个线程可以有多个协程，一个进程也可以单独拥有多个协程</p>
+<p>2、线程进程都是同步机制，而协程则是异步</p>
+<p>3、协程能保留上一次调用的状态，每次过程重入时，就相当于进入上一次调用的状态</p>
+<h3 id="同步阻塞"><a href="#同步阻塞" class="headerlink" title="同步阻塞"></a>同步阻塞</h3><h5 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h5><p>最早的服务器端程序都是通过多进程、多线程来解决并发IO的问题。一个请求创建一个进程，然后子进程进入循环同步堵塞地与客户端连接进行交互，收发处理数据    。用多线程模式实现非常简单，线程中可以直接向某一个客户端连接发送数据。</p>
+<p>步骤</p>
+<p>1、创建一个socket</p>
+<p>2、进入while循环，阻塞在进程accept操作上，等待客户端连接进入</p>
+<p>3、主进程在多进程模型下通过fork创建子进程（多线程模型可以创建子线程）</p>
+<p>4、子进程/线程创建成功后进入while循环，阻塞在recv调用上，等待客户端向服务端发送数据</p>
+<p>5、收到数据后服务器程序进行处理然后使用send向客户端发送响应</p>
+<p>6、当客户端连接关闭时，子进程/线程退出并销毁所有资源。主进程/线程会回收此子进程/线程</p>
+<p>缺点</p>
 <ul>
-<li>不变的图像，eg. logo，图标等</li>
-<li>js、css静态文件</li>
-<li>可下载文件，mp3等</li>
-</ul>
-<p>适合协商缓存</p>
-<ul>
-<li>HTML文件</li>
-<li>经常替换的图片</li>
-<li>经常修改的js、css文件（js、css文件的加载可以加入文件的签名来拒绝缓存 index.css?signature/index.signature.css）</li>
-</ul>
-<p>不适合缓存的内容</p>
-<ul>
-<li><p>用户隐私等敏感数据</p>
+<li><p>严重依赖进程的数量解决并发问题</p>
 </li>
-<li><p>经常改变的api数据接口</p>
+<li><p>启动大量进程会带来额外的进程调度消耗</p>
 </li>
 </ul>
-<h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><pre><code>$since = $_SERVER[&apos;HTTP_IF_MODIFIED_SINCE&apos;];
-$lifetime = 3600;
-if(strotime($since) +$lifetime &gt; time()){
-    header(&apos;HTTP/1.1 304 Not Modified&apos;);
-    exit();
+<pre><code>$sockserv = stream_socket_server(&apos;tcp://host:port&apos;, $errno, $errst);
+for($i = 0; $i &lt; 5; $i++){
+    if(pcntl_fork() == 0){
+        while(true){
+            $conn = stream_socket_accept($sockserv);
+            if($conn == false)
+                continue;
+            $request = fread($conn, 9000);
+            $response = &apos;hello&apos;;
+            fwrite($conn, $response);
+            fclose($conn);
+        }
+        exit(0);
+    }
 }
-header(&apos;Last-Modified:&apos;.gmdate(&apos;D, d M Y H:i:s&apos;, time()), &apos; GMT&apos;);
+</code></pre><h3 id="异步非阻塞"><a href="#异步非阻塞" class="headerlink" title="异步非阻塞"></a>异步非阻塞</h3><p>现在各种高并发异步IO的服务器程序都是基于epoll实现。</p>
+<p>IO复用异步非阻塞程序使用经典Reactor模型，Reactor是反应堆的意思，本身不处理任何数据收发，只是可以监视一个socket句柄的时间变化。</p>
+<h5 id="Reactor模型"><a href="#Reactor模型" class="headerlink" title="Reactor模型"></a>Reactor模型</h5><ul>
+<li><p><code>add</code> 添加一个socket到reactor</p>
+</li>
+<li><p><code>set</code> 修改socket对应的事件监听，可以设置监听的类型，如可读可写</p>
+</li>
+<li><p><code>del</code> 从Reactor中移除，不在监听事件</p>
+</li>
+<li><p><code>callback</code> 事件发生后回调指定的函数，一般在add/set时指定</p>
+</li>
+</ul>
+<p>nginx 多线程Reactor；swoole 多线程Reactor 多线程Worker。</p>
+<pre><code>$reactor = new Reactor();
+$sockserv = steam_socket_server(&apos;tcp://host:port&apos;);
+$reactor-&gt;add($sockserv, EV_READ, function() use($sockserv, $reactor){
+    $sockcli = steam_socket_accept($sockserv);
+    $reactor-&gt;add($sockcli, EV_READ, function() use($sockcli, $reactor){
+        $request = fread($sockcli, 10000);
+        $reactor-&gt;add($sockcli, EV_WRITE, function() use($sockcli, $request){
+            fwrite($sockcli, &apos;test&apos;);
+            $reactor-&gt;del($sockcli);
+            fclose($sockcli);
+        });
+    });
+});
+</code></pre><h3 id="并发编程实践"><a href="#并发编程实践" class="headerlink" title="并发编程实践"></a>并发编程实践</h3><h5 id="swoole扩展"><a href="#swoole扩展" class="headerlink" title="swoole扩展"></a>swoole扩展</h5><p>php的异步、并行、高性能网络通信引擎，使用纯c编写，提供了php的异步多线程服务器，异步tcp/udp网络客户端，异步mysql，异步redis，数据库连接池，asynctask，消息队列，毫秒定时器，异步文件读写，异步dns查询。</p>
+<p>除了异步io的支持之外，swoole为php多线程的模式设计了多个并发数据结构和IPC通信机制，大大简化多进程并发编程工作。</p>
+<h5 id="swoole的异步mysql实现"><a href="#swoole的异步mysql实现" class="headerlink" title="swoole的异步mysql实现"></a>swoole的异步mysql实现</h5><pre><code>$db = new Swoole\MySQL;
+$server = [
+    &apos;host&apos; =&gt; &apos;&apos;,
+    &apos;user&apos; =&gt; &apos;&apos;,
+    &apos;password&apos; =&gt; &apos;&apos;,
+    &apos;database&apos; =&gt; &apos;&apos;
+];
+$db-&gt;connect($server, function($db, $result){
+    $db-&gt;query(&quot;show tables&quot;, function(Swoole\MySQL $db, $result){
+        // do something
+    });
+});
+</code></pre><h3 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h3><p>邮件发送、应用解耦、流量削峰、日志处理、消息通知</p>
+<h3 id="接口并发请求"><a href="#接口并发请求" class="headerlink" title="接口并发请求"></a>接口并发请求</h3><pre><code>curl_multi_init
 </code></pre>
       
 
@@ -239,18 +287,18 @@ header(&apos;Last-Modified:&apos;.gmdate(&apos;D, d M Y H:i:s&apos;, time()), &a
   
 <nav id="article-nav">
   
-    <a href="/2017/10/10/php面试题整理-nginx缓存机制/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/10/10/php面试题整理-mysql数据库层的优化/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          php面试题整理-nginx缓存机制
+          php面试题整理-mysql数据库层的优化
         
       </div>
     </a>
   
   
-    <a href="/2017/10/10/php面试题整理-减少HTTP请求/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">php面试题整理-减少HTTP请求</div>
+    <a href="/2017/10/10/php面试题整理-动态语言的静态化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">php面试题整理-动态语言的静态化</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -363,18 +411,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">error</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
               </li>
              
@@ -395,11 +431,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+                <a href="javascript:void(0)" class="js-tag color1">error</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -407,15 +439,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">过期删除策略</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">备忘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -431,15 +483,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,10 +499,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">session</a>
               </li>
              
@@ -463,11 +507,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
+                <a href="javascript:void(0)" class="js-tag color3">vi</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,6 +516,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
              
               <li class="article-tag-list-item">
