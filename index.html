@@ -153,6 +153,745 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-php面试题整理-nginx缓存机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/php面试题整理-nginx缓存机制/">php面试题整理-nginx缓存机制</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/10/php面试题整理-nginx缓存机制/" class="archive-article-date">
+  	<time datetime="2017-10-10T06:10:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/10/php面试题整理-nginx缓存机制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-php面试题整理-HTTP缓存机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/php面试题整理-HTTP缓存机制/">php面试题整理-HTTP缓存机制</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/10/php面试题整理-HTTP缓存机制/" class="archive-article-date">
+  	<time datetime="2017-10-10T05:41:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="HTTP缓存分类"><a href="#HTTP缓存分类" class="headerlink" title="HTTP缓存分类"></a>HTTP缓存分类</h5><p>如果请求成功，status code会有三种情况：</p>
+<p>200 from cache：直接从本地缓存中获取响应，最快速，最省流量，因为根本没有向服务器发送请求。</p>
+<p>304 not modified：协商缓存，浏览器在本地没有命中的情况下请求头中发送一定的校验数据到服务端，如果服务端数据没有改变，浏览器从本地缓存响应，返回304。</p>
+<p>快速，发送的数据很少，只返回一些基本的响应头信息，数据量很小，不发送实际相应体。<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/10/php面试题整理-HTTP缓存机制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-php面试题整理-减少HTTP请求" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/php面试题整理-减少HTTP请求/">php面试题整理-减少HTTP请求</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/10/php面试题整理-减少HTTP请求/" class="archive-article-date">
+  	<time datetime="2017-10-10T05:34:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="性能黄金法则"><a href="#性能黄金法则" class="headerlink" title="性能黄金法则"></a>性能黄金法则</h5><p>只有10%-20%的最终用户响应时间花在接收请求的HTML文档上，剩下的80%-90%的时间花在HTML文档所引用的所有组件（图片、script、css、flash等等）进行的HTTP请求上<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/10/php面试题整理-减少HTTP请求/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-php面试题整理-防盗链" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/php面试题整理-防盗链/">php面试题整理-防盗链</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/10/php面试题整理-防盗链/" class="archive-article-date">
+  	<time datetime="2017-10-10T03:36:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>通过 <code>referer</code> 或者签名，网站可以检测目标网页访问的来源网页，如果是资源文件，则可以跟踪到显示它的网页地址；一旦检测到来源不是本站即进行阻止或者返回指定页面。<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/10/php面试题整理-防盗链/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-php面试题整理-高并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/php面试题整理-高并发/">php面试题整理-高并发</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/10/php面试题整理-高并发/" class="archive-article-date">
+  	<time datetime="2017-10-10T03:21:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="高并发"><a href="#高并发" class="headerlink" title="高并发"></a>高并发</h3><p>并发访问，在某个时间点，有多少访问同时到来（日PV在千万以上）</p>
+<h5 id="应该关心什么？"><a href="#应该关心什么？" class="headerlink" title="应该关心什么？"></a>应该关心什么？</h5><p><strong>1、QPS</strong></p>
+<ul>
+<li><p>每秒请求或者查询的数量，每秒响应请求数（HTTP），不等于并发连接数</p>
+</li>
+<li><p>QPS是每秒HTTP请求数量，并发连接数是系统同时处理的请求数量</p>
+</li>
+<li><p>峰值一般是平均值的倍数，根据实际情况来定：</p>
+</li>
+</ul>
+<blockquote>
+<p>峰值每秒请求数量（QPS）= （总PV数 <em> 80%）/（6小时秒数 </em> 20%）</p>
+<p>80%的访问量集中在20%的时间内<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/10/php面试题整理-高并发/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-php面试题整理-数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/php面试题整理-数据结构/">php面试题整理-数据结构</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/10/php面试题整理-数据结构/" class="archive-article-date">
+  	<time datetime="2017-10-10T03:00:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="array"><a href="#array" class="headerlink" title="array"></a>array</h5><p>使用连续的内存来存储、数组中的所有元素必须是相同的类型或类型的衍生（同质数据结构）、元素可以通过下标直接访问</p>
+<h5 id="linkedlist"><a href="#linkedlist" class="headerlink" title="linkedlist"></a>linkedlist</h5><p>元素之间的关系是一对一的关系（除了第一个和最后一个元素，其他元素都是首尾相接）、顺序存储结构和链式存储结构两种存储方式</p>
+<h5 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h5><p>存储数据是先进后出的，栈只有一个出口，只能从栈顶部增加或者移除元素<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/10/php面试题整理-数据结构/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-php面试题整理-算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/09/php面试题整理-算法/">php面试题整理-算法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/09/php面试题整理-算法/" class="archive-article-date">
+  	<time datetime="2017-10-09T08:09:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="算法概念"><a href="#算法概念" class="headerlink" title="算法概念"></a>算法概念</h3><p>解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表示一个或多个操作。</p>
+<h3 id="五个特征"><a href="#五个特征" class="headerlink" title="五个特征"></a>五个特征</h3><p>有穷性、确切性、输入项、输出项、可行性</p>
+<h3 id="算法评定"><a href="#算法评定" class="headerlink" title="算法评定"></a>算法评定</h3><h5 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h5><ul>
+<li><p>得出算法的计算次数公式</p>
+</li>
+<li><p>用常数1来取代所有时间中的所有加法常数</p>
+</li>
+<li><p>在修改后的运行次数函数中，只保留最高阶项</p>
+</li>
+<li><p>如果最高阶存在且不是1，则去除与这个项相乘的函数</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/09/php面试题整理-算法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-php面试题整理-MVC和框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/09/php面试题整理-MVC和框架/">php面试题整理-MVC和框架</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/09/php面试题整理-MVC和框架/" class="archive-article-date">
+  	<time datetime="2017-10-09T07:54:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p>单一入口：用一个处理程序文件处理所有的HTTP请求，根据请求时的参数的不用不同区分不同模块和操作的请求。</p>
+<ul>
+<li><p>优点</p>
+<ul>
+<li><p>统一的安全性检查</p>
+</li>
+<li><p>集中处理程序</p>
+</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li><p>url不美观（url重写）</p>
+</li>
+<li><p>处理效率会稍低</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/09/php面试题整理-MVC和框架/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-php面试题整理-功能设计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/09/php面试题整理-功能设计/">php面试题整理-功能设计</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/09/php面试题整理-功能设计/" class="archive-article-date">
+  	<time datetime="2017-10-09T06:49:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>数据表设计 </p>
+</li>
+<li><p>表创建语句</p>
+</li>
+<li><p>选择php连接数据库方式</p>
+</li>
+</ul>
+<p>###eg. ###</p>
+<p>在线留言本，实现在线留言功能，信息存储到数据库。设计数据表内容以及使用php编码完成。</p>
+<ul>
+<li>表创建语句</li>
+</ul>
+<pre><code>CREATE TABLE message(
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(120) NOT NULL DEFAULT &apos;&apos;,
+    content VARCHAR(255) NOT NULL DEFAULT &apos;&apos;,
+    created_at INT NOT NULL DEFAULT &apos;0&apos;,
+    user_name VARCHAR(32) UNSIGNED NOT NULL DEFAULT &apos;&apos;,
+    KEY message_user_name(user_name)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</code></pre><ul>
+<li><p>连接方式 </p>
+<p>  PDO / MYSQLI / MYSQL</p>
+</li>
+</ul>
+<pre><code>TRY {
+    $dsn = &apos;mysql:dbname=test;host=localhost&apos;;
+    $attr = [
+        PDO::ATTR_ERRMODE =&gt; PDO::ERRMODE_EXCEPTION
+    ];
+    $pdo = new PDO($dsn, $username, $password, $attr);
+    $sql = &apos;SELECT id,title,content FROM message where user_name=:username&apos;;
+    $stmt = $pdo-&gt;prepare($sql);
+    $stmt-&gt;execute([&apos;:user_name&apos; =&gt; $user_name]);
+    $result = $stmt-&gt;fetchAll(PDO::FETCH_ASSOC);
+
+    if ($result) {
+        exit(&apos;success&apos;);
+    } else {
+        exit(&apos;fail&apos;);
+    }
+} CATCH (PDOException $e) {
+    echo $e-&gt;getMessage();
+}
+</code></pre><h3 id="eg"><a href="#eg" class="headerlink" title="eg."></a>eg.</h3><p>设计无限分类：id title pid 递归 (path order by)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/09/php面试题整理-功能设计/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-php面试题整理-mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -239,717 +978,9 @@
 
 
   
-    <article id="post-php面试题整理-linux基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/09/php面试题整理-linux基础/">php面试题整理-linux基础</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/09/php面试题整理-linux基础/" class="archive-article-date">
-  	<time datetime="2017-10-09T03:07:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p>系统安全 </p>
-<pre><code>sudo su chmod setfacl...
-</code></pre><p>进程管理 </p>
-<pre><code>w top ps kill pkill pstree killall...
-</code></pre><p>用户管理 </p>
-<pre><code>id usermod useradd groupadd userdel...
-</code></pre>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/09/php面试题整理-linux基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CGI、fastCGI与php-fpm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/09/CGI、fastCGI与php-fpm/">CGI、fastCGI与php-fpm</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/09/CGI、fastCGI与php-fpm/" class="archive-article-date">
-  	<time datetime="2017-10-09T02:52:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="CGI"><a href="#CGI" class="headerlink" title="CGI"></a>CGI</h3><p>不同语言的解析器与 Web Server 之间的通信协议。</p>
-<h3 id="fastCGI"><a href="#fastCGI" class="headerlink" title="fastCGI"></a>fastCGI</h3><p>CGI 效率很低，因为 Web Server 每收到一个请求都会 folk 一个进程，请求结束kill 掉这个进程。高并发时浪费资源，fastCGI的出现解决了这个问题。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cgi</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">php-fpm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/09/CGI、fastCGI与php-fpm/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-php面试题整理-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/09/php面试题整理-js/">php面试题整理-js</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/09/php面试题整理-js/" class="archive-article-date">
-  	<time datetime="2017-10-09T02:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>undefined：未使用值来声明的变量，值是undefined。</p>
-<p>数据类型：js变量均为对象。</p>
-<p>函数：参数无默认值。在函数外声明的变量是全局变量，所有的脚本和函数都能访问到。
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/09/php面试题整理-js/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-php面试题整理-网络协议" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/08/php面试题整理-网络协议/">php面试题整理-网络协议</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/08/php面试题整理-网络协议/" class="archive-article-date">
-  	<time datetime="2017-10-08T08:47:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="HTTP协议状态码"><a href="#HTTP协议状态码" class="headerlink" title="HTTP协议状态码"></a>HTTP协议状态码</h3><h4 id="五类响应"><a href="#五类响应" class="headerlink" title="五类响应"></a>五类响应</h4><p>1XX 指示信息——请求已接收，继续处理；</p>
-<p>2XX success——请求已被成功接收；</p>
-<p>3XX redirection——要完成请求必须进行更进一步操作；
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/08/php面试题整理-网络协议/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LAMP-LNMP安装与配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/08/LAMP-LNMP安装与配置/">LAMP/LNMP安装与配置</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/08/LAMP-LNMP安装与配置/" class="archive-article-date">
-  	<time datetime="2017-10-08T08:35:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="LINUX"><a href="#LINUX" class="headerlink" title="LINUX"></a>LINUX</h3><p>virtual box 与 centos 官网下载，安装。</p>
-<p>virtual box 首次启动centos时，需注意：</p>
-<ul>
-<li><p><strong>安装位置</strong>的选择 和 <strong>网络和主机名</strong>中网络的开启</p>
-</li>
-<li><p><strong>root 密码</strong>的设置 和<strong>管理员用户</strong>的创建</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">lnmp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">lamp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/08/LAMP-LNMP安装与配置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-php面试题整理-会话控制技术" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/08/php面试题整理-会话控制技术/">php面试题整理-会话控制技术</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/08/php面试题整理-会话控制技术/" class="archive-article-date">
-  	<time datetime="2017-10-08T07:21:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>为什么使用：HTTP协议为无状态协议（没有内建机制维护两个事物之间的状态），所以同一个用户两次访问相同页面时，HTTP请求不会认为它们来自同一个用户，会把它们当做是两次请求的独立，也就没有办法在不同页面之间保持跟踪。允许服务器跟踪同一个客户端做出的连续请求。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/08/php面试题整理-会话控制技术/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-php面试题整理-文件及目录处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/08/php面试题整理-文件及目录处理/">php面试题整理-文件及目录处理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/08/php面试题整理-文件及目录处理/" class="archive-article-date">
-  	<time datetime="2017-10-08T02:49:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p><strong>文件操作函数及几种打开模式</strong></p>
-<ol>
-<li><p>fopen()</p>
-<blockquote>
-<p>r 打开只读文件，该文件必须存在。</p>
-<p>r+ 打开可读写的文件，该文件必须存在。 </p>
-<p>w 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。</p>
-<p>w+ 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。</p>
-<p>a 以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾，即文件原先的内容会被保留。</p>
-<p>a+ 以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。 </p>
-<p>x 创建并以写入方式打开，将文件指针指向文件头。如果文件已存在，则 fopen() 调用失败并返回 FALSE，并生成一条 E_WARNING 级别的错误信息。如果文件不存在则尝试创建之。</p>
-<p>x+ 创建并以读写方式打开，其他的行为和 ‘x’ 一样。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/08/php面试题整理-文件及目录处理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-php面试题整理-正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/08/php面试题整理-正则表达式/">php面试题整理-正则表达式</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/08/php面试题整理-正则表达式/" class="archive-article-date">
-  	<time datetime="2017-10-08T02:29:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>作用：分割、查找、匹配、替换字符串</p>
-<p>应该掌握的函数：preg_mathch()、preg_match_all()、preg_replace()、preg_split()<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/08/php面试题整理-正则表达式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-php面试题整理-变量与常量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/08/php面试题整理-变量与常量/">php面试题整理-变量与常量</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/08/php面试题整理-变量与常量/" class="archive-article-date">
-  	<time datetime="2017-10-08T02:28:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p><strong>引用变量</strong><br>  在 PHP 中，变量和值是两个概念。PHP是一种弱类型语言，值在PHP的内部（zend引擎），被存放在一个zval结构体中，这个结构体中，除了包含了值的类型，数据外，还包含两个字节的信息。一个是 <code>is_ref</code>，是一个bool值，用来标识这个值是否是一个<strong>强制引用</strong>。第二个额外字节 是<code>refcount</code>，用来表示指向这个值的变量（也称符号即symbol）的个数。如果refcount为0，那么这个值就可以被回收了。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/08/php面试题整理-变量与常量/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1033,14 +1064,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">error</a>
               </li>
              
@@ -1053,15 +1076,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">predis</a>
+                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1073,6 +1092,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">predis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -1081,11 +1108,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1101,10 +1128,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
               </li>
              
@@ -1114,6 +1137,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">php面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1129,18 +1160,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">日常整理</a>
               </li>
              
@@ -1149,7 +1168,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php的面向对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
             
             <div class="clearfix"></div>

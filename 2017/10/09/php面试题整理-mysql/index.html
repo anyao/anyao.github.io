@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Ann&#39;s Death Note">
 <meta property="og:description" content="数据类型整型INT(0) 0 代表宽度，对大多数应用是没有意义的，它不会限制值的范围，只会影响显示字符的个数。为zerofill服务。 字符型 VARCHAR   用于存储可变长度字符串，比定长类型更节省空间；  使用1或者2个额外字节记录字符串的长度，列长度小于255字节，使用1个字节表示，否则2个；  如果存储内容超出指定长度，会被截断。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-09T06:43:43.714Z">
+<meta property="og:updated_time" content="2017-10-09T07:48:12.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php面试题整理-mysql">
 <meta name="twitter:description" content="数据类型整型INT(0) 0 代表宽度，对大多数应用是没有意义的，它不会限制值的范围，只会影响显示字符的个数。为zerofill服务。 字符型 VARCHAR   用于存储可变长度字符串，比定长类型更节省空间；  使用1或者2个额外字节记录字符串的长度，列长度小于255字节，使用1个字节表示，否则2个；  如果存储内容超出指定长度，会被截断。">
@@ -467,17 +467,10 @@ show profile for query 临时表ID
 </li>
 </ul>
 <h2 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h2><ul>
-<li><p>预处理语句防sql注入</p>
-<ul>
-<li>prepare </li>
-</ul>
+<li><p>预处理语句防sql注入：<code>delete from user where id = ? prepare</code></p>
 </li>
-</ul>
-<pre><code>delete from user where id = ?
-</code></pre><ul>
-<li>尽量使用pdo</li>
-</ul>
-<ul>
+<li><p>尽量使用pdo</p>
+</li>
 <li><p>写入数据库的数据要进行特殊字符的转义</p>
 </li>
 <li><p>查询错误信息不要返回给用户，将错误记录到日志</p>
@@ -518,6 +511,15 @@ show profile for query 临时表ID
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/10/09/php面试题整理-功能设计/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          php面试题整理-功能设计
+        
+      </div>
+    </a>
   
   
     <a href="/2017/10/09/php面试题整理-linux基础/" id="article-nav-older" class="article-nav-link-wrap">
@@ -634,14 +636,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">error</a>
               </li>
              
@@ -654,15 +648,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">predis</a>
+                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -674,6 +664,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">predis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -682,11 +680,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -702,10 +700,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
               </li>
              
@@ -715,6 +709,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">php面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -730,18 +732,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">日常整理</a>
               </li>
              
@@ -750,7 +740,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php的面向对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
             
             <div class="clearfix"></div>
