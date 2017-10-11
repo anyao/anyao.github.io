@@ -153,6 +153,171 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-memcached的一致性哈希分布式算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/11/memcached的一致性哈希分布式算法/">memcached的一致性哈希分布式算法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/11/memcached的一致性哈希分布式算法/" class="archive-article-date">
+  	<time datetime="2017-10-11T03:43:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="根据余数计算分散"><a href="#根据余数计算分散" class="headerlink" title="根据余数计算分散"></a>根据余数计算分散</h5><p>根据服务器台数的余数进行分散：求得键的整数哈希值，再除以服务器台数，根据其余数来选择服务器。</p>
+<p>余数计算的方法简单，数据的分散性也相当优秀，但也有其缺点。那就是当添加或移除服务器时，缓存重组的代价相当巨大。添加服务器后，余数就会产生巨变，这样就无法获取与保存时相同的服务器，从而影响缓存的命中率。</p>
+<p>eg. 由 N 台服务器变为 N-1 台——每 N<em>(N-1) 个数中，求余相同的数只有 N 个数字。所以命中率在服务器 down 的短期内急剧下降至 N/(N</em>(N-1)) = 1/(N-1)。</p>
+<h5 id="Consistent-Hashing"><a href="#Consistent-Hashing" class="headerlink" title="Consistent Hashing"></a>Consistent Hashing</h5><p>首先求出 memcached 服务器（节点）的哈希值，并将其配置到 0～2^32 的圆（continuum）上。然后用同样的方法求出存储数据的键的哈希值，并映射到圆上。然后从数据映射到的位置开始顺时针查找，将数据保存到找到的第一个服务器上。如果超过 2^32 仍然找不到服务器，就会保存到第一台 memcached 服务器上。</p>
+<p>如果添加一台 memcached 服务器，余数分布式算法由于保存键的服务器会发生巨大变化。而影响缓存的命中率，但 Consistent Hashing 中，只有在增加服务器的地点逆时针方向的第一台服务器上的键会受到影响。</p>
+<p>因此，Consistent Hashing 最大限度地抑制了键的重新分布。而且，有的 Consistent Hashing 的实现方法还采用了虚拟节点的思想。使用一般的 hash 函数的话，服务器的映射地点的分布非常不均匀。</p>
+<p>因此，使用虚拟节点的思想，为每个物理节点（服务器）分配 100～200个点。这样就能抑制分布不均匀，最大限度地减小服务器增减时的缓存重新分布。</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line">/** </div><div class="line">    * Get a list of targets for the resource, in order of precedence. </div><div class="line">    * Up to $requestedCount targets are returned, less if there are fewer in total. </div><div class="line">    * </div><div class="line">    * @param string $resource </div><div class="line">    * @param int $requestedCount The length of the list to return </div><div class="line">    * @return array List of targets </div><div class="line">    * @comment 查找当前的资源对应的节点, </div><div class="line">    *          节点为空则返回空,节点只有一个则返回该节点, </div><div class="line">    *          对当前资源进行hash,对所有的位置进行排序,在有序的位置列上寻找当前资源的位置 </div><div class="line">    *          当全部没有找到的时候,将资源的位置确定为有序位置的第一个(形成一个环) </div><div class="line">    *          返回所找到的节点 </div><div class="line">    */  </div><div class="line">   public function lookupList($resource, $requestedCount)  </div><div class="line">   &#123;  </div><div class="line">       if (!$requestedCount)  </div><div class="line">           throw new Flexihash_Exception(&apos;Invalid count requested&apos;);  </div><div class="line"> </div><div class="line">       // handle no targets  </div><div class="line">       if (empty($this-&gt;_positionToTarget))  </div><div class="line">           return array();  </div><div class="line"> </div><div class="line">       // optimize single target  </div><div class="line">       if ($this-&gt;_targetCount == 1)  </div><div class="line">           return array_unique(array_values($this-&gt;_positionToTarget));  </div><div class="line"> </div><div class="line">       // hash resource to a position  </div><div class="line">       $resourcePosition = $this-&gt;_hasher-&gt;hash($resource);  </div><div class="line"> </div><div class="line">       $results = array();  </div><div class="line">       $collect = false;  </div><div class="line"> </div><div class="line">       $this-&gt;_sortPositionTargets();  </div><div class="line"> </div><div class="line">       // search values above the resourcePosition  </div><div class="line">       foreach ($this-&gt;_positionToTarget as $key =&gt; $value)  </div><div class="line">       &#123;  </div><div class="line">           // start collecting targets after passing resource position  </div><div class="line">           if (!$collect &amp;&amp; $key &gt; $resourcePosition)  </div><div class="line">           &#123;  </div><div class="line">               $collect = true;  </div><div class="line">           &#125;  </div><div class="line"> </div><div class="line">           // only collect the first instance of any target  </div><div class="line">           if ($collect &amp;&amp; !in_array($value, $results))  </div><div class="line">           &#123;  </div><div class="line">               $results []= $value;  </div><div class="line">           &#125;  </div><div class="line"> </div><div class="line">           // return when enough results, or list exhausted  </div><div class="line">           if (count($results) == $requestedCount || count($results) == $this-&gt;_targetCount)  </div><div class="line">           &#123;  </div><div class="line">               return $results;  </div><div class="line">           &#125;  </div><div class="line">       &#125;  </div><div class="line"> </div><div class="line">       // loop to start - search values below the resourcePosition  </div><div class="line">       foreach ($this-&gt;_positionToTarget as $key =&gt; $value)  </div><div class="line">       &#123;  </div><div class="line">           if (!in_array($value, $results))  </div><div class="line">           &#123;  </div><div class="line">               $results []= $value;  </div><div class="line">           &#125;  </div><div class="line"> </div><div class="line">           // return when enough results, or list exhausted  </div><div class="line">           if (count($results) == $requestedCount || count($results) == $this-&gt;_targetCount)  </div><div class="line">           &#123;  </div><div class="line">               return $results;  </div><div class="line">           &#125;  </div><div class="line">       &#125;  </div><div class="line"> </div><div class="line">       // return results after iterating through both &quot;parts&quot;  </div><div class="line">       return $results;  </div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</code></pre><p><a href="http://pan.baidu.com/s/1c22bGWg" target="_blank" rel="external">Flexihash</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">memcached</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hash</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/11/memcached的一致性哈希分布式算法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-memcached的内部存储" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/11/memcached的内部存储/">memcached的内部存储</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/11/memcached的内部存储/" class="archive-article-date">
+  	<time datetime="2017-10-11T03:11:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>memcached 默认情况下采用了名为 Slab Allocator 的机制分配、管理内存。</p>
+<p>在该机制出现以前，内存的分配是通过对所有记录简单地进行malloc 和 free 来进行的。但是，这种方式会导致内存碎片，加重操作系统内存管理器的负担，最坏的情况下，会导致操作系统比 memcached 进程本身还慢。<strong>Slab Allocator</strong> 就是为解决该问题而诞生的。<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">memcache</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/11/memcached的内部存储/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-php面试题整理-负载均衡" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -779,166 +944,6 @@ $smarty-&gt;clear_cache(&apos;article.html&apos;, $art_id);    // 清除同一�
 
 
   
-    <article id="post-php面试题整理-防盗链" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/php面试题整理-防盗链/">php面试题整理-防盗链</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/10/php面试题整理-防盗链/" class="archive-article-date">
-  	<time datetime="2017-10-10T03:36:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>通过 <code>referer</code> 或者签名，网站可以检测目标网页访问的来源网页，如果是资源文件，则可以跟踪到显示它的网页地址；一旦检测到来源不是本站即进行阻止或者返回指定页面。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/10/php面试题整理-防盗链/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-php面试题整理-高并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/php面试题整理-高并发/">php面试题整理-高并发</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/10/php面试题整理-高并发/" class="archive-article-date">
-  	<time datetime="2017-10-10T03:21:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="高并发"><a href="#高并发" class="headerlink" title="高并发"></a>高并发</h3><p>并发访问，在某个时间点，有多少访问同时到来（日PV在千万以上）</p>
-<h5 id="应该关心什么？"><a href="#应该关心什么？" class="headerlink" title="应该关心什么？"></a>应该关心什么？</h5><p><strong>1、QPS</strong></p>
-<ul>
-<li><p>每秒请求或者查询的数量，每秒响应请求数（HTTP），不等于并发连接数</p>
-</li>
-<li><p>QPS是每秒HTTP请求数量，并发连接数是系统同时处理的请求数量</p>
-</li>
-<li><p>峰值一般是平均值的倍数，根据实际情况来定：</p>
-</li>
-</ul>
-<blockquote>
-<p>峰值每秒请求数量（QPS）= （总PV数 <em> 80%）/（6小时秒数 </em> 20%）</p>
-<p>80%的访问量集中在20%的时间内<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">php面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/10/php面试题整理-高并发/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1025,11 +1030,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
+                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lamp</a>
+                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">error</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1045,10 +1054,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">error</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
@@ -1057,7 +1062,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1065,23 +1070,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cgi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">php-fpm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1097,7 +1086,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lnmp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">php核心技术与最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">整理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">memcache</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1113,6 +1122,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">session</a>
               </li>
              
@@ -1121,7 +1134,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vi</a>
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1133,11 +1150,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">三层架构</a>
+                <a href="javascript:void(0)" class="js-tag color3">vi</a>
               </li>
              
               <li class="article-tag-list-item">
